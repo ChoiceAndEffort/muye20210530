@@ -1,7 +1,0 @@
-module.exports = {
-  NODE_ENV: '"production"',
-  hosturl: ''
-  // NODE_ENV: 'production',
-  // VUE_APP_MODE: 'production',
-  // VUE_APP_API_URL: 'http://xxx.,xxx.xxx.xx:8008/api/'
-}
