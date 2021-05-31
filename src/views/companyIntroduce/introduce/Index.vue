@@ -31,6 +31,7 @@ export default {
 
 <style lang="less" scoped>
 .introduce {
+  padding: 10px 0;
   .content1,
   .content2,
   .content3,

@@ -9,17 +9,20 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    <div class="secton">
+      <ScopeOfBusiness />
+    </div>
     <Footer />
   </div>
 </template>
 
 <script>
+import ScopeOfBusiness from "@/components/scopeOfBusiness.vue";
 export default {
   name: "Home",
-  // components: {
-  //   Header,
-  //   Footer
-  // },
+  components: {
+    ScopeOfBusiness
+  },
   data() {
     return {
       navList: [
@@ -43,6 +46,10 @@ export default {
       height: 100%;
       width: 100%;
     }
+  }
+  .secton {
+    width: 1140px;
+    margin: 0 auto;
   }
 }
 </style>
