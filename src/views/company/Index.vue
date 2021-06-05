@@ -1,23 +1,25 @@
 <template>
   <div class="company-introduce">
-    <Header />
-    <div class="company-img">
-      <img :src="damen" alt srcset />
-    </div>
-    <div class="content">
-      <p class="title">{{title}}</p>
-      <ul class="introduce-list">
-        <li
-          v-for="item in instroduceList"
-          :key="item.name"
-          :class="{active:title===item.name}"
-          @click="handleTabSwitch(item)"
-        >{{item.name}}</li>
-      </ul>
+    <mu-ban>
+      <div class="company-img">
+        <img :src="damen" alt srcset />
+      </div>
+      <div class="content">
+        <p class="title">{{title}}</p>
+        <ul class="introduce-list">
+          <li
+            v-for="item in instroduceList"
+            :key="item.name"
+            :class="{active:title===item.name}"
+            @click="handleTabSwitch(item)"
+          >{{item.name}}</li>
+        </ul>
         <router-view />
-    </div>
-    <Footer />
-  
+      </div>
+    </mu-ban>
+    <!-- <Header /> -->
+
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -43,19 +45,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@height:350px;
+@height: 350px;
 
 .company-introduce {
-
+  height: 100%;
   .company-img {
-
     img {
       width: 100%;
-      height: @height
+      height: @height;
     }
   }
   .content {
-
     width: 1140px;
     margin: 0 auto;
     .title {

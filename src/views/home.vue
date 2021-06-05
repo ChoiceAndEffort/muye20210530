@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <Header />
-    <div class="nav">
-      <el-carousel height="300px">
-        <el-carousel-item v-for="item in navList" :key="item" trigger="click">
-          <!-- <h3 class="small">{{ item }}</h3> -->
-          <img :src="item" alt />
-        </el-carousel-item>
-      </el-carousel>
-    </div>
-    <div class="secton">
-      <ScopeOfBusiness />
-    </div>
-    <Footer />
+    <mu-ban>
+      <div class="nav">
+        <el-carousel height="300px">
+          <el-carousel-item v-for="item in navList" :key="item" trigger="click">
+            <!-- <h3 class="small">{{ item }}</h3> -->
+            <img :src="item" alt />
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+      <div class="secton">
+        <ScopeOfBusiness />
+      </div>
+    </mu-ban>
   </div>
 </template>
 
@@ -26,20 +26,14 @@ import rukou from "@/assets/images/rukou.jpg";
 export default {
   name: "Home",
   components: {
-    ScopeOfBusiness
+    ScopeOfBusiness,
   },
   data() {
     return {
-      navList: [
-        home,
-        damen,
-        rukou,
-        qincai
-   
-      ]
+      navList: [home, damen, rukou, qincai],
     };
   },
-  methods: {}
+  methods: {},
 };
 </script>
 

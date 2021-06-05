@@ -1,12 +1,16 @@
 <template>
-  <div class="muban">
-
+  <div class="mu-ban">
+    <Header />
+    <div class="mu-ban-content">
+      <slot/>
+    </div>
+     <Footer />
   </div>
 </template>
 
 <script>
 export default {
-  name: "Muban",
+  name: "MuBan",
   data() {
     return {};
   },
@@ -15,6 +19,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.muban {
+.mu-ban {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .mu-ban-content{
+    flex:1;
+  }
 }
 </style>

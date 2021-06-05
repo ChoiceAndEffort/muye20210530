@@ -1,28 +1,3 @@
-export const menuList = [
-  {
-    name: "首页",
-    url: "Home",
-    index: "1",
-  },
-  {
-    name: "关于宇晨",
-    url: "Company",
-    index: "2",
-    children: instroduceList,
-  },
-  {
-    name: "公司业务",
-    url: "",
-    index: "3",
-    children: businessList,
-  },
-  {
-    name: "联络我们",
-    url: "Home1",
-    index: "4",
-  },
-];
-
 export const instroduceList = [
   {
     name: "企业介绍",
@@ -66,5 +41,30 @@ export const businessList = [
     name: "观光旅游",
     url: "",
     index: "3-4",
+  },
+];
+
+export const menuList = [
+  {
+    name: "首页",
+    url: "Home",
+    index: "1",
+  },
+  {
+    name: "关于宇晨",
+    url: "Company",
+    index: "2",
+    children: instroduceList,
+  },
+  {
+    name: "公司业务",
+    url: "",
+    index: "3",
+    children: businessList,
+  },
+  {
+    name: "联络我们",
+    url: "Home1",
+    index: "4",
   },
 ];

@@ -37,10 +37,10 @@ export default {
 .footer {
   color: #999;
   background: #303036;
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  // position: absolute;
+  // right: 0;
+  // left: 0;
+  // bottom: 0;
 
   display: flex;
   justify-content: space-between;
