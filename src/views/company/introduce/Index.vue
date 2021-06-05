@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "introduce",
+  name: "Introduce",
   data() {
     return {};
   },
@@ -31,7 +31,10 @@ export default {
 
 <style lang="less" scoped>
 .introduce {
+    width: 1140px;
+    margin: 0 auto;
   padding: 10px 0;
+
   .content1,
   .content2,
   .content3,

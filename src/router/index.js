@@ -8,21 +8,43 @@ const routes = [
     redirect: "home",
   },
   {
-    path: "/home",
+    path: "/home",//首页
     name: "Home",
     component: () => import("@/views/Home.vue"),
   },
 
   {
-    path: "/company-introduce",
-    name: "CompanyIntroduce",
-    component: () => import("@/views/companyIntroduce/Index.vue"),
+    path: "/company",//关于公司
+    name: "Company",
+    component: () => import("@/views/company/Index.vue"),
     children: [
       {
-        path: "/company-introduce/introduce",
+        path: "/company/introduce",//公司介绍
         name: "Introduce",
-        component: () => import("@/views/companyIntroduce/introduce/Index.vue"),
+        component: () => import("@/views/company/introduce/Index.vue"),
       },
+      {
+        path: "/company/history",//公司发展
+        name: "History",
+        component: () => import("@/views/company/history/Index.vue"),
+      },
+    ],
+  },
+  {
+    path: "/industrial",//产业发展
+    name: "Industrial",
+    component: () => import("@/views/industrial/Index.vue"),
+    children: [
+      // {
+      //   path: "/company/introduce",//
+      //   name: "Introduce",
+      //   component: () => import("@/views/company/introduce/Index.vue"),
+      // },
+      // {
+      //   path: "/company/history",//
+      //   name: "History",
+      //   component: () => import("@/views/company/history/Index.vue"),
+      // },
     ],
   },
 ];

@@ -1,8 +1,8 @@
 <template>
   <div class="company-introduce">
     <Header />
-    <div>
-      <img src alt srcset />
+    <div class="company-img">
+      <img :src="damen" alt srcset />
     </div>
     <div class="content">
       <p class="title">{{title}}</p>
@@ -14,58 +14,50 @@
           @click="handleTabSwitch(item)"
         >{{item.name}}</li>
       </ul>
+        <router-view />
     </div>
     <Footer />
-    <router-view />
+  
   </div>
 </template>
 
 <script>
+import { instroduceList } from "@/public/companyList";
+import damen from "@/assets/images/damen.jpg";
 export default {
   name: "Muban",
   data() {
     return {
-      instroduceList: [
-        {
-          name: "董事长致辞",
-          url: ""
-        },
-        {
-          name: "企业介绍",
-          url: "Introduce"
-        },
-        {
-          name: "组织架构",
-          url: ""
-        },
-        {
-          name: "发展进程",
-          url: ""
-        },
-        {
-          name: "公司荣誉",
-          url: ""
-        }
-      ],
-      title: "董事长致辞"
+      instroduceList,
+      title: "企业介绍",
+      damen,
     };
   },
   methods: {
     handleTabSwitch(item) {
       this.title = item.name;
       this.$router.push({ name: item.url });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
+@height:350px;
+
 .company-introduce {
-  width: 1140px;
-  margin: 0 auto;
+
+  .company-img {
+
+    img {
+      width: 100%;
+      height: @height
+    }
+  }
   .content {
-    // display: flex;
-    // text-align: center;
+
+    width: 1140px;
+    margin: 0 auto;
     .title {
       padding: 10px 0;
       font-size: 30px;

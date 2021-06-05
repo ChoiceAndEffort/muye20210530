@@ -18,6 +18,11 @@
 
 <script>
 import ScopeOfBusiness from "@/components/scopeOfBusiness.vue";
+import home from "@/assets/images/home.jpg";
+import damen from "@/assets/images/damen.jpg";
+import qincai from "@/assets/images/qincai.jpg";
+import rukou from "@/assets/images/rukou.jpg";
+
 export default {
   name: "Home",
   components: {
@@ -26,10 +31,11 @@ export default {
   data() {
     return {
       navList: [
-        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fst.douding.cn%2Fupload%2Fpublish_article%2Fimage%2F20170913%2F1505266457891091646.jpg&refer=http%3A%2F%2Fst.douding.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg",
-        "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/baike/pic/item/d6ca7bcb0a46f21f65ce357efd246b600c33ae21.jpg",
-        "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3690502224,711323828&fm=26&gp=0.jpg",
-        "http://s1.sinaimg.cn/orignal/4e800a4dn7812d8926680"
+        home,
+        damen,
+        rukou,
+        qincai
+   
       ]
     };
   },
