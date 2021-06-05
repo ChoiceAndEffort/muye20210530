@@ -1,12 +1,12 @@
 <template>
-  <div class="introduce">
-   企业介绍
+  <div class="honor">
+      荣誉资质
   </div>
 </template>
 
 <script>
 export default {
-  name: "Introduce",
+  name: "Honor",
   data() {
     return {};
   },
@@ -15,9 +15,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.introduce {
-  width: 1140px;
-  margin: 0 auto;
+.honor {
   padding: 10px 0;
 }
 </style>

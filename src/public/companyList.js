@@ -11,39 +11,47 @@ export const instroduceList = [
   },
   {
     name: "荣誉资质",
-    url: "",
+    url: "Honor",
     index: "2-3",
   },
   {
     name: "视频中心",
-    url: "",
+    url: "Video",
     index: "2-4",
   },
 ];
 
+
 export const businessList = [
   {
     name: "种猪产业",
-    url: "",
+    url: "BreedingPig",
     index: "3-1",
   },
   {
     name: "养猪产业",
-    url: "",
+    url: "PigRaising",
     index: "3-2",
   },
   {
     name: "水生蔬菜",
-    url: "",
+    url: "Vegetables",
     index: "3-3",
   },
   {
     name: "观光旅游",
-    url: "",
+    url: "Travel",
     index: "3-4",
   },
 ];
 
+export const connactUsList = [
+  {
+    name: "观光咨询",
+    url: "Reserve",
+    index: "4-1",
+  },
+];
 export const menuList = [
   {
     name: "首页",
@@ -64,7 +72,8 @@ export const menuList = [
   },
   {
     name: "联络我们",
-    url: "Home1",
+    url: "",
     index: "4",
+    children: connactUsList,
   },
 ];

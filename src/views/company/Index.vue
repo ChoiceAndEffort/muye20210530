@@ -17,9 +17,6 @@
         <router-view />
       </div>
     </mu-ban>
-    <!-- <Header /> -->
-
-    <!-- <Footer /> -->
   </div>
 </template>
 

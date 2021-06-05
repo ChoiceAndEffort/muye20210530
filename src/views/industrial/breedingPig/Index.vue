@@ -1,12 +1,12 @@
 <template>
-  <div class="introduce">
-   企业介绍
+  <div class="breeding-pig">
+      种猪产业
   </div>
 </template>
 
 <script>
 export default {
-  name: "Introduce",
+  name: "BreedingPig",
   data() {
     return {};
   },
@@ -15,9 +15,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.introduce {
-  width: 1140px;
-  margin: 0 auto;
+.breeding-pig {
   padding: 10px 0;
 }
 </style>

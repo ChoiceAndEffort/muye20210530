@@ -1,8 +1,8 @@
 <template>
-  <div class="industrial">
+  <div class="contact-us">
     <mu-ban>
-      <div class="industrial-img">
-        <img :src="circle" alt srcset />
+      <div class="contact-us-img">
+        <img :src="contact" alt srcset />
       </div>
       <div class="content">
         <router-view />
@@ -12,14 +12,13 @@
 </template>
 
 <script>
-import circle from "@/assets/images/circle.png";
-// import { businessList } from "@/public/companyList";
+import contact from "@/assets/images/contact.jpg";
+
 export default {
-  name: "industrial",
+  name: "ContactUs",
   data() {
     return {
-      // businessList,
-      circle,
+      contact,
     };
   },
   methods: {},
@@ -28,9 +27,9 @@ export default {
 
 <style lang="less" scoped>
 @height: 300px;
-.industrial {
+.contact-us {
   height: 100%;
-  .industrial-img {
+  .contact-us-img {
     img {
       width: 100%;
       height: @height;
