@@ -3,7 +3,7 @@
     <h3>公司新闻</h3>
     <div class="content">
       <ul>
-        <li v-for="(item,index) in newsList" :key="index">
+        <li v-for="(item,index) in copyNewsList" :key="index">
           <div class="top">
             <div class="left">{{item.type}}</div>
             <div class="center">{{item.news}}</div>
@@ -12,32 +12,53 @@
               <i class="el-icon-arrow-right"></i>
             </div>
           </div>
-
           <el-divider></el-divider>
         </li>
+        <el-button plain class="el-icon-plus" @click="handAddMore">加载更多</el-button>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+const newsList = [
+  {
+    type: "公告",
+    news: "公司成立",
+  },
+  {
+    type: "产业动态",
+    news: "产业扩大",
+  },
+  {
+    type: "公告",
+    news: "公司成立",
+  },
+  {
+    type: "产业动态",
+    news: "产业扩大",
+  },
+  {
+    type: "公告",
+    news: "公司成立",
+  },
+  {
+    type: "产业动态",
+    news: "产业扩大",
+  },
+];
 export default {
   name: "News",
   data() {
     return {
-      newsList: [
-        {
-          type: "公告",
-          news: "公司成立",
-        },
-        {
-          type: "产业动态",
-          news: "产业扩大",
-        },
-      ],
+      copyNewsList: newsList.slice(0, 5),
     };
   },
-  methods: {},
+  methods: {
+    handAddMore() {
+      this.copyNewsList = newsList;
+    },
+  },
 };
 </script>
 

@@ -24,9 +24,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@height: 400px;
 .news {
   img {
-    height: 400px;
+    height: @height;
     width: 100%;
   }
 }

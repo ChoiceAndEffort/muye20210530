@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@height: 300px;
+@height: 400px;
 .contact-us {
   height: 100%;
   .contact-us-img {

@@ -4,7 +4,7 @@
       <img :src="damen" alt srcset />
     </div>
     <div class="content">
-      <p class="title">{{title}}</p>
+      <h3 class="title">{{title}}</h3>
       <ul class="introduce-list">
         <li
           v-for="item in instroduceList"
@@ -52,10 +52,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@height: 350px;
+@height: 400px;
 
 .company-introduce {
   height: 100%;
+  h3 {
+    line-height: 60px;
+    font-size: 28px;
+    font-weight: 600;
+    color: tomato;
+    margin-bottom: 10px;
+  }
   .company-img {
     img {
       width: 100%;
@@ -65,11 +72,6 @@ export default {
   .content {
     width: 1140px;
     margin: 0 auto;
-    .title {
-      padding: 10px 0;
-      font-size: 30px;
-      font-weight: 600;
-    }
   }
   .introduce-list {
     display: flex;

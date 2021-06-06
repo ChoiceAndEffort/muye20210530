@@ -3,7 +3,6 @@
     <div class="nav">
       <el-carousel height="300px">
         <el-carousel-item v-for="item in navList" :key="item" trigger="click">
-          <!-- <h3 class="small">{{ item }}</h3> -->
           <img :src="item" alt />
         </el-carousel-item>
       </el-carousel>
@@ -42,15 +41,15 @@ export default {
 
 <style lang="less" scoped>
 .home {
-  position: relative;
-  height: 100%;
+  // height: 100%;
   .nav {
     img {
       height: 100%;
       width: 100%;
     }
   }
-  .secton,.news {
+  .secton,
+  .news {
     width: 1140px;
     margin: 0 auto;
   }

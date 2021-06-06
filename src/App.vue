@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-
-
     <mu-ban>
       <keep-alive>
         <router-view />

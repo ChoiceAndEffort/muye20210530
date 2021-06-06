@@ -84,6 +84,7 @@ export default {
 .header {
   // width: 1140px;
   // margin: 0 auto;
+  z-index: 100;
   height: @height;
   display: flex;
   justify-content: space-between;

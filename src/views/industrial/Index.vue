@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@height: 300px;
+@height: 400px;
 .industrial {
   height: 100%;
   .industrial-img {

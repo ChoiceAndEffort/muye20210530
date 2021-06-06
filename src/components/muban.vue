@@ -2,9 +2,9 @@
   <div class="mu-ban">
     <Header />
     <div class="mu-ban-content">
-      <slot/>
+      <slot />
     </div>
-     <Footer />
+    <Footer />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
@@ -23,8 +23,9 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  .mu-ban-content{
-    flex:1;
+
+  .mu-ban-content {
+    flex: 1;
   }
 }
 </style>
