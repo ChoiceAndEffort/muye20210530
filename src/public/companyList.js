@@ -1,3 +1,9 @@
+import zhuzai from "@/assets/images/zhuzai.png";
+
+import yangzhu from "@/assets/images/yangzhu.png";
+import shucai from "@/assets/images/shucai.jpg";
+import luyou from "@/assets/images/lvyou.png";
+
 export const instroduceList = [
   {
     name: "企业介绍",
@@ -27,21 +33,25 @@ export const businessList = [
     name: "种猪产业",
     url: "BreedingPig",
     index: "3-1",
+    img:zhuzai
   },
   {
     name: "养猪产业",
     url: "PigRaising",
     index: "3-2",
+    img:yangzhu
   },
   {
     name: "水生蔬菜",
     url: "Vegetables",
     index: "3-3",
+    img:shucai
   },
   {
     name: "观光旅游",
     url: "Travel",
     index: "3-4",
+    img:luyou
   },
 ];
 

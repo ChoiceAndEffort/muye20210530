@@ -10,7 +10,7 @@ const routes = [
   {
     path: "/home",//首页
     name: "Home",
-    component: () => import("@/views/Home.vue"),
+    component: () => import("@/views/home/Home.vue"),
   },
 
   {

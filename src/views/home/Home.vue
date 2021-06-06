@@ -11,11 +11,15 @@
     <div class="secton">
       <ScopeOfBusiness />
     </div>
+    <div class="news">
+      <News />
+    </div>
   </div>
 </template>
 
 <script>
-import ScopeOfBusiness from "@/components/scopeOfBusiness.vue";
+import ScopeOfBusiness from "./scopeOfBusiness.vue";
+import News from "./news.vue";
 import home from "@/assets/images/home.jpg";
 import damen from "@/assets/images/damen.jpg";
 import qincai from "@/assets/images/qincai.jpg";
@@ -25,6 +29,7 @@ export default {
   name: "Home",
   components: {
     ScopeOfBusiness,
+    News,
   },
   data() {
     return {

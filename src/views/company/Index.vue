@@ -30,6 +30,18 @@ export default {
       damen,
     };
   },
+  watch: {
+    //处理刷新后默认高亮
+    $route: {
+      handler(nv) {
+        const { name } = nv;
+        let obj = this.instroduceList.find((item) => item.url === name);
+        this.title = obj && obj.name;
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
   methods: {
     handleTabSwitch(item) {
       this.title = item.name;
