@@ -60,7 +60,7 @@ export const menuList = [
   },
   {
     name: "关于宇晨",
-    url: "Company",
+    url: "",
     index: "2",
     children: instroduceList,
   },

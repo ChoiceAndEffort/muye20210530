@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <!-- <home/> -->
-    <router-view />
+
+
+    <mu-ban>
+      <keep-alive>
+        <router-view />
+      </keep-alive>
+    </mu-ban>
   </div>
 </template>
 
@@ -15,7 +18,7 @@ export default {
   components: {
     // HelloWorld
     // Home
-  }
+  },
 };
 </script>
 
@@ -28,5 +31,6 @@ export default {
   color: #2c3e50;
   height: 100vh;
   overflow: auto;
+  min-width: 1000px;
 }
 </style>

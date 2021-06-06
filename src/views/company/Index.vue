@@ -1,22 +1,20 @@
 <template>
   <div class="company-introduce">
-    <mu-ban>
-      <div class="company-img">
-        <img :src="damen" alt srcset />
-      </div>
-      <div class="content">
-        <p class="title">{{title}}</p>
-        <ul class="introduce-list">
-          <li
-            v-for="item in instroduceList"
-            :key="item.name"
-            :class="{active:title===item.name}"
-            @click="handleTabSwitch(item)"
-          >{{item.name}}</li>
-        </ul>
-        <router-view />
-      </div>
-    </mu-ban>
+    <div class="company-img">
+      <img :src="damen" alt srcset />
+    </div>
+    <div class="content">
+      <p class="title">{{title}}</p>
+      <ul class="introduce-list">
+        <li
+          v-for="item in instroduceList"
+          :key="item.name"
+          :class="{active:title===item.name}"
+          @click="handleTabSwitch(item)"
+        >{{item.name}}</li>
+      </ul>
+      <router-view />
+    </div>
   </div>
 </template>
 

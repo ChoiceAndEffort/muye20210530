@@ -1,13 +1,11 @@
 <template>
   <div class="industrial">
-    <mu-ban>
-      <div class="industrial-img">
-        <img :src="circle" alt srcset />
-      </div>
-      <div class="content">
-        <router-view />
-      </div>
-    </mu-ban>
+    <div class="industrial-img">
+      <img :src="circle" alt srcset />
+    </div>
+    <div class="content">
+      <router-view />
+    </div>
   </div>
 </template>
 

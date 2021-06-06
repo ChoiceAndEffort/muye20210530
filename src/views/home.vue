@@ -1,18 +1,16 @@
 <template>
   <div class="home">
-    <mu-ban>
-      <div class="nav">
-        <el-carousel height="300px">
-          <el-carousel-item v-for="item in navList" :key="item" trigger="click">
-            <!-- <h3 class="small">{{ item }}</h3> -->
-            <img :src="item" alt />
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-      <div class="secton">
-        <ScopeOfBusiness />
-      </div>
-    </mu-ban>
+    <div class="nav">
+      <el-carousel height="300px">
+        <el-carousel-item v-for="item in navList" :key="item" trigger="click">
+          <!-- <h3 class="small">{{ item }}</h3> -->
+          <img :src="item" alt />
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    <div class="secton">
+      <ScopeOfBusiness />
+    </div>
   </div>
 </template>
 

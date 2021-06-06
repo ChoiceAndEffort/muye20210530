@@ -1,13 +1,11 @@
 <template>
   <div class="contact-us">
-    <mu-ban>
-      <div class="contact-us-img">
-        <img :src="contact" alt srcset />
-      </div>
-      <div class="content">
-        <router-view />
-      </div>
-    </mu-ban>
+    <div class="contact-us-img">
+      <img :src="contact" alt srcset />
+    </div>
+    <div class="content">
+      <router-view />
+    </div>
   </div>
 </template>
 
