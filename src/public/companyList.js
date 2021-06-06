@@ -27,31 +27,30 @@ export const instroduceList = [
   },
 ];
 
-
 export const businessList = [
   {
     name: "种猪产业",
     url: "BreedingPig",
     index: "3-1",
-    img:zhuzai
+    img: zhuzai,
   },
   {
     name: "养猪产业",
     url: "PigRaising",
     index: "3-2",
-    img:yangzhu
+    img: yangzhu,
   },
   {
     name: "水生蔬菜",
     url: "Vegetables",
     index: "3-3",
-    img:shucai
+    img: shucai,
   },
   {
     name: "观光旅游",
     url: "Travel",
     index: "3-4",
-    img:luyou
+    img: luyou,
   },
 ];
 
@@ -59,7 +58,20 @@ export const connactUsList = [
   {
     name: "观光咨询",
     url: "Reserve",
+    index: "5-1",
+  },
+];
+
+export const newsList = [
+  {
+    name: "公司公告",
+    url: "Notice",
     index: "4-1",
+  },
+  {
+    name: "行业动态",
+    url: "IndustryNews",
+    index: "4-2",
   },
 ];
 export const menuList = [
@@ -81,9 +93,15 @@ export const menuList = [
     children: businessList,
   },
   {
-    name: "联络我们",
+    name: "公司新闻",
     url: "",
     index: "4",
+    children: newsList,
+  },
+  {
+    name: "联络我们",
+    url: "",
+    index: "5",
     children: connactUsList,
   },
 ];

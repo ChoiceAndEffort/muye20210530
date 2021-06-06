@@ -50,7 +50,7 @@ export default {
       width: 100%;
     }
   }
-  .secton {
+  .secton,.news {
     width: 1140px;
     margin: 0 auto;
   }

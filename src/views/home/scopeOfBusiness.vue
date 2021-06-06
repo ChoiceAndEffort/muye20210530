@@ -29,12 +29,13 @@ export default {
 
 <style lang="less" scoped>
 .scope-business {
-  padding: 20px 0;
+  // padding: 20px 0;
   h3 {
     line-height: 60px;
     font-size: 28px;
     font-weight: 600;
     color: tomato;
+    margin-bottom: 10px;
   }
   ul {
     display: flex;
