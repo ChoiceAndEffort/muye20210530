@@ -19,6 +19,11 @@ const routes = [
     component: () => import("@/views/company/Index.vue"),
     children: [
       {
+        path: "/company/words", //公司介绍
+        name: "Words",
+        component: () => import("@/views/company/words/Index.vue"),
+      },
+      {
         path: "/company/introduce", //公司介绍
         name: "Introduce",
         component: () => import("@/views/company/introduce/Index.vue"),

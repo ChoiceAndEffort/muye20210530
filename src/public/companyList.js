@@ -6,24 +6,29 @@ import luyou from "@/assets/images/lvyou.png";
 
 export const instroduceList = [
   {
+    name: "总经理寄语",
+    url: "Words",
+    index: "2-1",
+  },
+  {
     name: "企业介绍",
     url: "Introduce",
-    index: "2-1",
+    index: "2-2",
   },
   {
     name: "发展历程",
     url: "History",
-    index: "2-2",
+    index: "2-3",
   },
   {
     name: "荣誉资质",
     url: "Honor",
-    index: "2-3",
+    index: "2-4",
   },
   {
     name: "视频中心",
     url: "Video",
-    index: "2-4",
+    index: "2-5",
   },
 ];
 

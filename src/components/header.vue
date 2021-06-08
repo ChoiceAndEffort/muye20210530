@@ -1,7 +1,8 @@
 <template>
   <div class="header">
     <div class="left">
-      <h1>湖北宇晨农牧有限公司</h1>
+      <!-- <h1>湖北宇晨农牧有限公司</h1> -->
+      <img src="../assets/images/logo.png" alt srcset />
     </div>
     <div class="right">
       <el-menu
@@ -91,12 +92,20 @@ export default {
   position: sticky;
   background: #fff;
   top: 0px;
-  h1 {
-    font-size: 24px;
-    color: #409eff;
-    height: 100%;
-    line-height: @height;
-    margin-left: 200px;
+  // h1 {
+  //   font-size: 24px;
+  //   color: #409eff;
+  //   height: 100%;
+  //   line-height: @height;
+  //   margin-left: 200px;
+  // }
+  .left {
+    display: inline-block;
+    img {
+      height: 100%;
+      width: 100px;
+      margin-left: 200px;
+    }
   }
 
   /deep/.el-submenu__icon-arrow {

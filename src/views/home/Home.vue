@@ -7,9 +7,15 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    <!-- 公司业务 -->
+    <div class="circle">
+      <Circle1 />
+    </div>
+    <!-- 产业领域 -->
     <div class="secton">
       <ScopeOfBusiness />
     </div>
+    <!-- 公司新闻 -->
     <div class="news">
       <News />
     </div>
@@ -17,6 +23,7 @@
 </template>
 
 <script>
+import Circle1 from "./circle.vue";
 import ScopeOfBusiness from "./scopeOfBusiness.vue";
 import News from "./news.vue";
 import home from "@/assets/images/home.jpg";
@@ -29,6 +36,7 @@ export default {
   components: {
     ScopeOfBusiness,
     News,
+    Circle1,
   },
   data() {
     return {
@@ -49,7 +57,7 @@ export default {
     }
   }
   .secton,
-  .news {
+  .news,.circle {
     width: 1140px;
     margin: 0 auto;
   }
