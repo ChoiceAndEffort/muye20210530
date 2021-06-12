@@ -16,6 +16,8 @@ import {
   TimelineItem,
   Card,
   Divider,
+  Tabs,
+  TabPane,
 } from "element-ui";
 
 import Header from "@/components/header.vue";
@@ -37,6 +39,10 @@ Vue.use(TimelineItem);
 Vue.use(MenuItem);
 Vue.use(Card);
 Vue.use(Divider);
+
+Vue.use(Tabs);
+Vue.use(TabPane);
+
 Vue.config.productionTip = false;
 
 new Vue({

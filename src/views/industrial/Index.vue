@@ -4,23 +4,46 @@
       <img :src="circle" alt srcset />
     </div>
     <div class="content">
-      <router-view />
+      <div class="left">
+        <el-tabs
+          tab-position="left"
+          style="height: 200px;"
+          @tab-click="hanldeGo"
+          v-model="activeName"
+        >
+          <el-tab-pane
+            v-for="item in businessList"
+            :label="item.name"
+            :key="item.url"
+            :name="item.url"
+          ></el-tab-pane>
+        </el-tabs>
+      </div>
+      <div class="right">
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import circle from "@/assets/images/circle.png";
-// import { businessList } from "@/public/companyList";
+import { businessList } from "@/public/companyList";
 export default {
   name: "industrial",
   data() {
     return {
-      // businessList,
+      businessList,
       circle,
+      activeName: "BreedingPig",
     };
   },
-  methods: {},
+  methods: {
+    hanldeGo(tab, event) {
+      console.log(tab, event);
+      this.$router.push({ name: tab.name });
+    },
+  },
 };
 </script>
 
@@ -36,7 +59,15 @@ export default {
   }
   .content {
     width: 1140px;
-    margin: 0 auto;
+    margin: 10px auto;
+    display: flex;
+    .left {
+      width: 10%;
+    }
+    .right {
+      width: 90%;
+      text-align: center;
+    }
   }
 }
 </style>
