@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: "Home",
+    redirect: "/home",
   },
   {
     path: "/home", //首页
@@ -78,12 +78,12 @@ const routes = [
     component: () => import("@/views/news/Index.vue"),
     children: [
       {
-        path: "/news/notice", 
+        path: "/news/notice",
         name: "Notice",
         component: () => import("@/views/news/notice/Index.vue"),
       },
       {
-        path: "/news/industry-news", 
+        path: "/news/industry-news",
         name: "IndustryNews",
         component: () => import("@/views/news/industryNews/Index.vue"),
       },
@@ -116,10 +116,15 @@ const routes = [
       // },
     ],
   },
+  {
+    path: "*", //首页
+    redirect: "/home",
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
+  base:'/yuchen/',
   routes,
 });
 

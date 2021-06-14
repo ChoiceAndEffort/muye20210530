@@ -8,7 +8,7 @@
             <div class="left">{{item.type}}</div>
             <div class="center">{{item.news}}</div>
             <div class="right">
-              时间
+              {{item.time}}
               <i class="el-icon-arrow-right"></i>
             </div>
           </div>
@@ -23,28 +23,14 @@
 <script>
 const newsList = [
   {
-    type: "公告",
-    news: "公司成立",
+    type: "公司动态",
+    news: "五月初五是端午，祝福心意全送到：愿你“粽”是快乐，“粽”是微笑，“粽”是喜悦，“粽”是好运，“粽”是成功，“粽”是幸福，“粽”是美好",
+    time: "2021-6-14",
   },
   {
-    type: "产业动态",
-    news: "产业扩大",
-  },
-  {
-    type: "公告",
-    news: "公司成立",
-  },
-  {
-    type: "产业动态",
-    news: "产业扩大",
-  },
-  {
-    type: "公告",
-    news: "公司成立",
-  },
-  {
-    type: "产业动态",
-    news: "产业扩大",
+    type: "公司动态",
+    news: "6月13日武汉市农科院高级畜牧师高其双，长江大学高锈纺教授来咸宁宇晨农牧现场考察指导工作。",
+    time: "2021-6-13",
   },
 ];
 export default {
@@ -78,11 +64,18 @@ export default {
       align-items: center;
       .center {
         width: 80%;
+        text-align: left;
       }
       .left {
-        text-align: left;
-        text-indent: 24px;
+        text-align: center;
+        // text-indent: 24px;
         width: 10%;
+        background: #e6a23c;
+        border-radius: 5px;
+        height: 40px;
+        line-height: 40px;
+        width: 100px;
+        margin-right: 10px;
       }
       .right {
         text-align: right;

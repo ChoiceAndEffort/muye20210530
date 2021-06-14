@@ -5,7 +5,7 @@
         <ul>
           <div class="company-name">宇晨农牧</div>
           <li>
-            <span class="title">公司地址：武汉市江夏区纸坊街北华街城明花园10幢1层8号</span>
+            <span class="title">公司地址：武汉市江夏区纸坊街文化大道113号聚诚怡江大厦A单元22层8室</span>
             <span class="content"></span>
           </li>
           <li>
@@ -56,11 +56,13 @@ export default {
     .content-left {
       text-align: left;
       .company-name {
-        padding: 3px 0;
+        padding: 5px 0;
+        font-size: 20px;
+        font-weight: 600;
       }
       ul {
         li {
-          padding: 3px 0;
+          padding: 5px 0;
         }
       }
     }

@@ -36,7 +36,7 @@ export default {
     margin-bottom: 10px;
   }
   .content {
-    height: 400px;
+    height: 600px;
     width: 100%;
     background: url("~@/assets/images/circleEN.png") no-repeat left top/100%
       100%;
@@ -44,7 +44,7 @@ export default {
     p {
       color: #409eff;
       font-size: 28px;
-      background: #fff;
+      background:transparent;
       width: 40%;
       height: 50px;
       line-height: 50px;

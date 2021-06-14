@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="nav">
-      <el-carousel height="300px">
+      <el-carousel height="500px">
         <el-carousel-item v-for="item in navList" :key="item" trigger="click">
           <img :src="item" alt />
         </el-carousel-item>
