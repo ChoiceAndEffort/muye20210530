@@ -4,6 +4,12 @@ import yangzhu from "@/assets/images/yangzhu.png";
 import shucai from "@/assets/images/shucai.jpg";
 import luyou from "@/assets/images/lvyou.png";
 
+import zhidaotou from "@/assets/images/zhidaotou.png";
+import zhidao1 from "@/assets/images/zhidao1.png";
+import zhidao2 from "@/assets/images/zhidao2.png";
+import zhidao3 from "@/assets/images/zhidao3.png";
+
+import duanwutou from "@/assets/images/duanwutou.png";
 export const instroduceList = [
   {
     name: "总经理寄语",
@@ -69,7 +75,7 @@ export const connactUsList = [
 
 export const newsList = [
   {
-    name: "公司公告",
+    name: "公司动态",
     url: "Notice",
     index: "4-1",
   },
@@ -108,5 +114,26 @@ export const menuList = [
     url: "",
     index: "5",
     children: connactUsList,
+  },
+];
+
+export const mockNewsList = [
+  {
+    id: 4001,
+    type: 1,
+    news:
+      "五月初五是端午，祝福心意全送到：愿你“粽”是快乐，“粽”是微笑，“粽”是喜悦，“粽”是好运，“粽”是成功，“粽”是幸福，“粽”是美好",
+    time: "2021-6-14",
+    headerImg: duanwutou,
+    images: [],
+  },
+  {
+    id: 4002,
+    type: 1,
+    news:
+      "6月13日武汉市农科院高级畜牧师高其双，长江大学高锈纺教授来咸宁宇晨农牧现场考察指导工作。",
+    time: "2021-6-13",
+    headerImg: zhidaotou,
+    images: [zhidao1, zhidao2, zhidao3],
   },
 ];

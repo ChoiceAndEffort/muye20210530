@@ -3,7 +3,7 @@
     <div class="title">总经理寄语</div>
     <div class="top">
       <div class="left">
-        <el-image style="width: 300px; height: 300px" :src="leader" :fit="fit"></el-image>
+        <el-image style="width: 300px; height: 300px" :src="leader" fit="cover"></el-image>
       </div>
       <div class="right">
         <p>牛传峰</p>

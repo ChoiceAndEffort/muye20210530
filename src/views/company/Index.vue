@@ -4,7 +4,7 @@
       <img :src="damen" alt srcset />
     </div>
     <div class="content">
-      <h3 class="title">{{title}}</h3>
+      <!-- <h3 class="title">{{title}}</h3> -->
       <ul class="introduce-list">
         <li
           v-for="item in instroduceList"
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       instroduceList,
-      title: "企业介绍",
+      title: "总经理寄语",
       damen,
     };
   },

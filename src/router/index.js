@@ -87,6 +87,12 @@ const routes = [
         name: "IndustryNews",
         component: () => import("@/views/news/industryNews/Index.vue"),
       },
+
+      {
+        path: "/news/detail",
+        name: "NewsDetail",
+        component: () => import("@/views/news/detail/Index.vue"),
+      },
     ],
   },
   {
@@ -99,21 +105,6 @@ const routes = [
         name: "Reserve",
         component: () => import("@/views/contactUs/reserve/Index.vue"),
       },
-      // {
-      //   path: "/industrial/pig-raising",//
-      //   name: "PigRaising",
-      //   component: () => import("@/views/industrial/pigRaising/Index.vue"),
-      // },
-      // {
-      //   path: "/industrial/vegetables",//
-      //   name: "Vegetables",
-      //   component: () => import("@/views/industrial/vegetables/Index.vue"),
-      // },
-      // {
-      //   path: "/industrial/travel",//
-      //   name: "Travel",
-      //   component: () => import("@/views/industrial/travel/Index.vue"),
-      // },
     ],
   },
   {
@@ -124,7 +115,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base:'/yuchen/',
+  base: "/yuchen/",
   routes,
 });
 

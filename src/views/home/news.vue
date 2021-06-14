@@ -5,7 +5,7 @@
       <ul>
         <li v-for="(item,index) in copyNewsList" :key="index">
           <div class="top">
-            <div class="left">{{item.type}}</div>
+            <div class="left">{{status[item.type]}}</div>
             <div class="center">{{item.news}}</div>
             <div class="right">
               {{item.time}}
@@ -21,28 +21,22 @@
 </template>
 
 <script>
-const newsList = [
-  {
-    type: "公司动态",
-    news: "五月初五是端午，祝福心意全送到：愿你“粽”是快乐，“粽”是微笑，“粽”是喜悦，“粽”是好运，“粽”是成功，“粽”是幸福，“粽”是美好",
-    time: "2021-6-14",
-  },
-  {
-    type: "公司动态",
-    news: "6月13日武汉市农科院高级畜牧师高其双，长江大学高锈纺教授来咸宁宇晨农牧现场考察指导工作。",
-    time: "2021-6-13",
-  },
-];
+import { mockNewsList } from "@/public/companyList";
+
 export default {
   name: "News",
   data() {
     return {
-      copyNewsList: newsList.slice(0, 5),
+      copyNewsList: mockNewsList.slice(0, 5),
+      status: {
+        1: "公司动态",
+        2: "行业动态",
+      },
     };
   },
   methods: {
     handAddMore() {
-      this.copyNewsList = newsList;
+      this.copyNewsList = mockNewsList;
     },
   },
 };
