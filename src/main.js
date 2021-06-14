@@ -18,6 +18,7 @@ import {
   Divider,
   Tabs,
   TabPane,
+  Image
 } from "element-ui";
 
 import Header from "@/components/header.vue";
@@ -42,6 +43,7 @@ Vue.use(Divider);
 
 Vue.use(Tabs);
 Vue.use(TabPane);
+Vue.use(Image);
 
 Vue.config.productionTip = false;
 

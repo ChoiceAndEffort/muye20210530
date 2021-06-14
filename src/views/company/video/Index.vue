@@ -1,6 +1,6 @@
 <template>
   <div class="video">
-      视频中心
+    <div class="title">视频中心</div>
   </div>
 </template>
 
@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import "~@/styles/public.less";
 .video {
   padding: 10px 0;
 }

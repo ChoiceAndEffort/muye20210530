@@ -13,7 +13,9 @@
           @click="handleTabSwitch(item)"
         >{{item.name}}</li>
       </ul>
-      <router-view />
+      <div class="son-content">
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +55,6 @@ export default {
 
 <style lang="less" scoped>
 @height: 400px;
-
 .company-introduce {
   height: 100%;
   h3 {
@@ -93,6 +94,14 @@ export default {
     .active {
       background: #007c53;
     }
+  }
+  .son-content {
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 1px dashed #ccc;
+    min-height: 300px;
+    text-align: left;
+    padding: 20px;
   }
 }
 </style>

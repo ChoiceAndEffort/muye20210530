@@ -1,6 +1,6 @@
 <template>
   <div class="honor">
-      荣誉资质
+    <div class="title">荣誉资质</div>
   </div>
 </template>
 
@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import "~@/styles/public.less";
 .honor {
   padding: 10px 0;
 }

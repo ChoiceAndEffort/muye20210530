@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@height: 400px;
+@height: 600px;
 .industrial {
   height: 100%;
   .industrial-img {
@@ -67,6 +67,7 @@ export default {
     .right {
       width: 90%;
       text-align: center;
+      text-align: left;
     }
   }
 }
