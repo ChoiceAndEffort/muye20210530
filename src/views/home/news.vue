@@ -3,7 +3,11 @@
     <h3>公司新闻</h3>
     <div class="content">
       <ul>
-        <li v-for="(item,index) in copyNewsList" :key="index">
+        <li
+          v-for="(item,index) in copyNewsList"
+          :key="index"
+          @click="handleRouterDetail(item.type,item.id)"
+        >
           <div class="top">
             <div class="left">{{status[item.type]}}</div>
             <div class="center">{{item.news}}</div>
@@ -14,7 +18,7 @@
           </div>
           <el-divider></el-divider>
         </li>
-        <el-button plain class="el-icon-plus" @click="handAddMore">加载更多</el-button>
+        <!-- <el-button plain class="el-icon-plus" @click="handAddMore">加载更多</el-button> -->
       </ul>
     </div>
   </div>
@@ -37,6 +41,15 @@ export default {
   methods: {
     handAddMore() {
       this.copyNewsList = mockNewsList;
+    },
+    handleRouterDetail(type, id) {
+      this.$router.push({
+        name: "NewsDetail",
+        query: {
+          type,
+          id,
+        },
+      });
     },
   },
 };

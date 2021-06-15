@@ -112,10 +112,10 @@ const routes = [
     redirect: "/home",
   },
 ];
-
+const ENV = process.env.NODE_ENV;
 const router = new VueRouter({
   mode: "history",
-  base: "/yuchen/",
+  base: ENV === "production" ? "/yuchen/" : "",//生产环境加对应的文件夹名称，开发环境不加；
   routes,
 });
 
