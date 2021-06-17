@@ -51,22 +51,22 @@ const routes = [
     component: () => import("@/views/industrial/Index.vue"),
     children: [
       {
-        path: "/industrial/breeding-pig", //
+        path: "/industrial/breeding-pig", //种猪
         name: "BreedingPig",
         component: () => import("@/views/industrial/breedingPig/Index.vue"),
       },
       {
-        path: "/industrial/pig-raising", //
+        path: "/industrial/pig-raising", //养猪
         name: "PigRaising",
         component: () => import("@/views/industrial/pigRaising/Index.vue"),
       },
       {
-        path: "/industrial/vegetables", //
+        path: "/industrial/vegetables", //水生素材
         name: "Vegetables",
         component: () => import("@/views/industrial/vegetables/Index.vue"),
       },
       {
-        path: "/industrial/travel", //
+        path: "/industrial/travel", //观光旅游
         name: "Travel",
         component: () => import("@/views/industrial/travel/Index.vue"),
       },

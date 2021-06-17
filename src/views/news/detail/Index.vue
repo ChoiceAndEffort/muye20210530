@@ -24,10 +24,17 @@ export default {
       return this.mockNewsList.find((item) => item.id === this.id);
     },
   },
-  methods: {},
-  created() {
-    this.id = parseInt(this.$route.query.id);
+  watch: {
+    $route: {
+      handler() {
+        this.id = parseInt(this.$route.query.id);
+      },
+      deep: true,
+      immediate: true,
+    },
   },
+  methods: {},
+  created() {},
 };
 </script>
 
