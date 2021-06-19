@@ -58,7 +58,7 @@ export default {
   }
   .secton,
   .news,.circle {
-    width: 1140px;
+    width: 1200px;
     margin: 0 auto;
   }
 }

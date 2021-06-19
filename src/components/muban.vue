@@ -23,7 +23,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-
+  min-width: 1000px;
   .mu-ban-content {
     flex: 1;
   }

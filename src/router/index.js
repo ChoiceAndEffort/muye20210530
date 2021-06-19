@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
-const routes = [
+let routes = [
   {
     path: "/",
     redirect: "/home",
@@ -112,10 +112,29 @@ const routes = [
     redirect: "/home",
   },
 ];
+
+let mobile = navigator.userAgent.match(
+  /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+);
+if (mobile) {
+  routes = [
+    {
+      path: "/",
+      redirect: "/home",
+    },
+    {
+      path: "/home", //首页
+      name: "Home",
+      component: () => import("@/mobile/home/Home.vue"),
+    },
+  ];
+}
+// console.log("routes", routes);
+
 const ENV = process.env.NODE_ENV;
 const router = new VueRouter({
   mode: "history",
-  base: ENV === "production" ? "/yuchen/" : "",//生产环境加对应的文件夹名称，开发环境不加；
+  base: ENV === "production" ? "/yuchen/" : "", //生产环境加对应的文件夹名称，开发环境不加；
   routes,
 });
 

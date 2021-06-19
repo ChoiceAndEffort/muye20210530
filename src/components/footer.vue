@@ -47,7 +47,7 @@ export default {
 
   .content {
     padding: 20px;
-    width: 1140px;
+    width: 1200px;
     margin: 0 auto;
     .content-left,
     .content-right {

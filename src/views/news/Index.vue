@@ -64,7 +64,7 @@ export default {
     width: 100%;
   }
   .content {
-    width: 1140px;
+    width: 1200px;
     margin: 0 auto;
   }
   .introduce-list {

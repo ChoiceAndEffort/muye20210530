@@ -71,7 +71,7 @@ export default {
     }
   }
   .content {
-    width: 1140px;
+    width: 1200px;
     margin: 0 auto;
   }
   .introduce-list {

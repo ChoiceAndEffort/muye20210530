@@ -18,16 +18,17 @@ import {
   Divider,
   Tabs,
   TabPane,
-  Image
+  Image,
 } from "element-ui";
 
 import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
 import MuBan from "@/components/MuBan.vue";
-
+import MobeilMuBan from "@/components/MobeilMuBan.vue";
 Vue.component("Header", Header);
 Vue.component("Footer", Footer);
 Vue.component("MuBan", MuBan);
+Vue.component("MobeilMuBan", MobeilMuBan);
 
 Vue.use(Icon);
 Vue.use(Menu);

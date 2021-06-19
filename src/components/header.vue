@@ -83,8 +83,7 @@ export default {
 <style lang="less" scoped>
 @height: 60px;
 .header {
-  // width: 1140px;
-  // margin: 0 auto;
+
   z-index: 100;
   height: @height;
   display: flex;

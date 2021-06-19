@@ -1,21 +1,47 @@
 <template>
   <div id="app">
-    <mu-ban>
+    <mu-ban v-if="!isMobile">
       <keep-alive>
         <router-view />
       </keep-alive>
     </mu-ban>
+    <mobeil-mu-ban v-else>
+      <keep-alive>
+        <router-view />
+      </keep-alive>
+    </mobeil-mu-ban>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import Home from "./views/home.vue";
 export default {
   name: "App",
-  components: {
-    // HelloWorld
-    // Home
+  components: {},
+  computed: {
+    isMobile() {
+      return navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+    },
+  },
+
+  mounted() {
+    //375像素宽设计稿  ->  50px      所有设计稿上的像素均需除以50计算为得到的rem
+    if (this.isMobile) {
+      this.$nextTick(function () {
+        // 适配不同屏幕，改变根font-size值
+        if (
+          document.documentElement.clientWidth <=
+          document.documentElement.clientHeight
+        ) {
+          document.documentElement.style.fontSize =
+            document.documentElement.clientWidth / 7.5 + "px";
+        } else {
+          document.documentElement.style.fontSize =
+            document.documentElement.clientWidth / 13.34 + "px";
+        }
+      });
+    }
   },
 };
 </script>
@@ -29,6 +55,5 @@ export default {
   color: #2c3e50;
   height: 100vh;
   overflow: auto;
-  min-width: 1000px;
 }
 </style>
