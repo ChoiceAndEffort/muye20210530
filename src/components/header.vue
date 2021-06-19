@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="left">
-      <!-- <h1>湖北宇晨农牧有限公司</h1> -->
+      <h1 v-show="false">湖北宇晨农牧有限公司</h1>
       <img src="../assets/images/logo.png" alt srcset />
     </div>
     <div class="right">
@@ -83,7 +83,6 @@ export default {
 <style lang="less" scoped>
 @height: 60px;
 .header {
-
   z-index: 100;
   height: @height;
   display: flex;
@@ -91,13 +90,7 @@ export default {
   position: sticky;
   background: #fff;
   top: 0px;
-  // h1 {
-  //   font-size: 24px;
-  //   color: #409eff;
-  //   height: 100%;
-  //   line-height: @height;
-  //   margin-left: 200px;
-  // }
+
   .left {
     display: inline-block;
     img {
