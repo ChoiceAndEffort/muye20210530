@@ -8,15 +8,15 @@
       </el-carousel>
     </div>
     <!-- 公司业务 -->
-    <div class="circle">
+    <div class="circle" :class="{active: !isMobile}">
       <Circle1 />
     </div>
     <!-- 产业领域 -->
-    <div class="secton">
+    <div class="secton" :class="{active: !isMobile}">
       <ScopeOfBusiness />
     </div>
     <!-- 公司新闻 -->
-    <div class="news">
+    <div class="news" :class="{active: !isMobile}">
       <News />
     </div>
   </div>
@@ -38,6 +38,7 @@ export default {
     News,
     Circle1,
   },
+  inject: ["isMobile"],
   data() {
     return {
       navList: [home, damen, rukou, qincai],
@@ -49,15 +50,24 @@ export default {
 
 <style lang="less" scoped>
 .home {
-  // height: 100%;
+  height: 100%;
+  * {
+    box-sizing: border-box;
+  }
   .nav {
+    width: 100%;
     img {
       height: 100%;
       width: 100%;
     }
   }
+
   .secton,
-  .news,.circle {
+  .news,
+  .circle {
+    width: 100%;
+  }
+  .active {
     width: 1200px;
     margin: 0 auto;
   }

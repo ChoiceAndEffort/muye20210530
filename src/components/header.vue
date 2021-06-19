@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" v-if="!isMobile">
     <div class="left">
       <h1 v-show="false">湖北宇晨农牧有限公司</h1>
       <img src="../assets/images/logo.png" alt srcset />
@@ -42,6 +42,7 @@
 import { menuList } from "@/public/companyList";
 export default {
   name: "Header",
+    inject: ["isMobile"],
   data() {
     return {
       activeIndex: "",

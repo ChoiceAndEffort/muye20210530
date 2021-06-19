@@ -113,22 +113,22 @@ let routes = [
   },
 ];
 
-let mobile = navigator.userAgent.match(
-  /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-);
-if (mobile) {
-  routes = [
-    {
-      path: "/",
-      redirect: "/home",
-    },
-    {
-      path: "/home", //首页
-      name: "Home",
-      component: () => import("@/mobile/home/Home.vue"),
-    },
-  ];
-}
+// let mobile = navigator.userAgent.match(
+//   /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+// );
+// if (mobile) {
+//   routes = [
+//     {
+//       path: "/",
+//       redirect: "/home",
+//     },
+//     {
+//       path: "/home", //首页
+//       name: "Home",
+//       component: () => import("@/mobile/home/Home.vue"),
+//     },
+//   ];
+// }
 // console.log("routes", routes);
 
 const ENV = process.env.NODE_ENV;

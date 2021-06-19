@@ -28,12 +28,17 @@ export default {
 <style lang="less" scoped>
 .circle {
   padding: 20px 0;
+  width: 100%;
+  * {
+    box-sizing: border-box;
+  }
   h3 {
     line-height: 60px;
     font-size: 28px;
     font-weight: 600;
     color: tomato;
     margin-bottom: 10px;
+    width: 100%;
   }
   .content {
     height: 600px;
@@ -44,7 +49,7 @@ export default {
     p {
       color: #409eff;
       font-size: 28px;
-      background:transparent;
+      background: transparent;
       width: 40%;
       height: 50px;
       line-height: 50px;

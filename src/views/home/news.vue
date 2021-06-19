@@ -13,7 +13,7 @@
             <div class="center">{{item.news}}</div>
             <div class="right">
               {{item.time}}
-              <i class="el-icon-arrow-right"></i>
+              <!-- <i class="el-icon-arrow-right"></i> -->
             </div>
           </div>
           <el-divider></el-divider>
@@ -58,6 +58,10 @@ export default {
 <style lang="less" scoped>
 .news {
   padding: 20px 0;
+  width: 100%;
+  * {
+    box-sizing: border-box;
+  }
   h3 {
     line-height: 60px;
     font-size: 28px;
@@ -66,17 +70,18 @@ export default {
     margin-bottom: 10px;
   }
   li {
+    width: 100%;
     .top {
       display: flex;
       align-items: center;
+      width: 100%;
       .center {
-        width: 80%;
+        width: 60%;
         text-align: left;
       }
       .left {
         text-align: center;
-        // text-indent: 24px;
-        width: 10%;
+        width: 15%;
         background: #e6a23c;
         border-radius: 5px;
         height: 40px;
@@ -86,7 +91,7 @@ export default {
       }
       .right {
         text-align: right;
-        width: 10%;
+        width: 25%;
       }
     }
   }
