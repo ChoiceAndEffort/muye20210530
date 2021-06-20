@@ -39,7 +39,9 @@ export default {
   }
 }
 .pc {
-  width: 1200px;
-  margin: 0 auto;
+  .content {
+    width: 1200px;
+    margin: 0 auto;
+  }
 }
 </style>

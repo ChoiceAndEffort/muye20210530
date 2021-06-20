@@ -2,7 +2,7 @@
   <div class="circle">
     <h3>企业介绍</h3>
     <div class="content" @click="handleRouterPush">
-      <p>集团化消费循环农业食材专供小镇</p>
+      <p v-if="!isMobile">集团化消费循环农业食材专供小镇</p>
       <!-- <img :src="circleEN" alt srcset /> -->
     </div>
   </div>
@@ -12,6 +12,7 @@
 // import circleEN from "@/assets/images/circleEN.png";
 export default {
   name: "Circle1",
+  inject: ["isMobile"],
   data() {
     return {
       // circleEN,
