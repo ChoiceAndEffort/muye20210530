@@ -1,14 +1,17 @@
 <template>
-  <div class="news">
+  <div class="news" :class="{isMobile: isMobile}">
     <div class="notice-img">
       <img :src="news" alt srcset />
     </div>
     <div class="content">
-      <ul class="introduce-list">
+      <el-tabs v-model="title" @tab-click="handleClick" v-if="isMobile">
+        <el-tab-pane v-for="item in newsList" :label="item.name" :key="item.index" :name="item.url"></el-tab-pane>
+      </el-tabs>
+      <ul class="introduce-list" v-else>
         <li
           v-for="item in newsList"
-          :key="item.name"
-          :class="{active:title===item.name}"
+          :key="item.index"
+          :class="{active:title===item.url}"
           @click="handleTabSwitch(item)"
         >{{item.name}}</li>
       </ul>
@@ -24,11 +27,12 @@ import news from "@/assets/images/news.png";
 import { newsList } from "@/public/companyList";
 export default {
   name: "News",
+  inject: ["isMobile"],
   data() {
     return {
       news,
       newsList,
-      title: "公司动态",
+      title: "Notice",
     };
   },
 
@@ -49,8 +53,11 @@ export default {
   // },
   methods: {
     handleTabSwitch(item) {
-      this.title = item.name;
+      this.title = item.url;
       this.$router.push({ name: item.url });
+    },
+    handleClick(tab) {
+      this.$router.push({ name: tab.name });
     },
   },
 };
@@ -95,6 +102,15 @@ export default {
     min-height: 300px;
     text-align: left;
     padding: 20px;
+  }
+}
+.isMobile {
+  *{
+    box-sizing: border-box;
+  }
+  .content {
+    width: 100%;
+    padding: 0 10px;
   }
 }
 </style>

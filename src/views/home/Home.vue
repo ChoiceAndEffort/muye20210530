@@ -66,6 +66,7 @@ export default {
   .news,
   .circle {
     width: 100%;
+    padding: 0 10px;
   }
   .active {
     width: 1200px;

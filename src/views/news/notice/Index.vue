@@ -8,7 +8,7 @@
         @click="handleRouterDetail(item.type,item.id)"
       >
         <div class="left">
-          <el-image style="width: 90px; height: 90px" :src="item.headerImg" fit="cover"></el-image>
+          <el-image :src="item.headerImg" fit="cover" class="image"></el-image>
         </div>
 
         <div class="center">{{ item.news}}</div>
@@ -51,14 +51,22 @@ export default {
 <style lang="less" scoped>
 @import "~@/styles/public.less";
 .notice {
+  * {
+    box-sizing: border-box;
+  }
   li {
-    display: flex;
-    margin-bottom: 20px;
-    height: 100px;
     width: 100%;
+    display: flex;
+    padding: 10px 0;
     border-bottom: 1px dashed #ccc;
+    align-items: center;
     .left {
       width: 10%;
+      .image {
+        width: 90px;
+        height: 90px;
+        border-radius: 10px;
+      }
     }
     .center {
       width: 80%;

@@ -33,7 +33,7 @@ export default {
 .history {
   padding: 10px 0;
   /deep/.el-timeline {
-    width: 50%;
+    width: 100%;
   }
 }
 </style>

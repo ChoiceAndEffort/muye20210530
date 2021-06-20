@@ -1,5 +1,5 @@
 <template>
-  <div class="words">
+  <div class="words" :class="{isMobile:isMobile}">
     <div class="title">总经理寄语</div>
     <div class="top">
       <div class="left">
@@ -23,6 +23,7 @@
 import leader from "@/assets/images/leader.png";
 export default {
   name: "Words",
+  inject: ["isMobile"],
   data() {
     return {
       leader,
@@ -35,6 +36,10 @@ export default {
 <style lang="less" scoped>
 @import "~@/styles/public.less";
 .words {
+  * {
+    box-sizing: border-box;
+  }
+
   .top {
     display: flex;
     .left {
@@ -57,6 +62,22 @@ export default {
     }
     text-align: left;
     line-height: 40px;
+  }
+}
+.isMobile {
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    .left {
+      width: 100%;
+    }
+    .right {
+      width: 100%;
+      p {
+        line-height: 35px;
+        text-align: left;
+      }
+    }
   }
 }
 </style>

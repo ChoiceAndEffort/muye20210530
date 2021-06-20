@@ -1,6 +1,6 @@
 <template>
   <div class="vegetables">
-    <div class="industrial-title">蔬菜产业</div>
+    <div class="industrial-title" v-if="!isMobile">蔬菜产业</div>
     <p>园区计划引进种植的水生蔬菜有水芹润航1、2、3号及水芹品种资源21个，金芙蓉水果莲、早熟藕鄂莲7号、双季茭白品种3个，水生植物花卉32个；发展50亩中山杉作为消纳沼液试验研究。通过种养结合，使低产田变高产田，低效田变万元田，把养殖废物变成宝贝，并实现养殖场零污染零排放。本项目建成和取得的成果，将为生猪养殖等企业的生态循环农业发展提供经验和案例，加速我区的水生蔬菜和水生花卉种质优化和生产技术改进，为水生蔬菜和水生花卉产业发展进行积极的探索。</p>
   </div>
 </template>
@@ -8,6 +8,7 @@
 <script>
 export default {
   name: "Vegetables",
+  inject: ["isMobile"],
   data() {
     return {};
   },

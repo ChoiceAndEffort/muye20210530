@@ -3,16 +3,24 @@
     <div class="company-img">
       <img :src="damen" alt srcset />
     </div>
-    <div class="content">
-      <!-- <h3 class="title">{{title}}</h3> -->
-      <ul class="introduce-list">
+    <div class="content" :class="{isMobile:isMobile}">
+      <el-tabs v-model="title" @tab-click="handleClick" v-if="isMobile">
+        <el-tab-pane
+          v-for="item in instroduceList"
+          :label="item.name"
+          :key="item.index"
+          :name="item.url"
+        ></el-tab-pane>
+      </el-tabs>
+      <ul class="introduce-list" v-else>
         <li
           v-for="item in instroduceList"
-          :key="item.name"
-          :class="{active:title===item.name}"
+          :key="item.index"
+          :class="{active:title===item.url}"
           @click="handleTabSwitch(item)"
         >{{item.name}}</li>
       </ul>
+
       <div class="son-content">
         <router-view />
       </div>
@@ -25,10 +33,11 @@ import { instroduceList } from "@/public/companyList";
 import damen from "@/assets/images/damen.jpg";
 export default {
   name: "Muban",
+  inject: ["isMobile"],
   data() {
     return {
       instroduceList,
-      title: "总经理寄语",
+      title: "Words",
       damen,
     };
   },
@@ -38,7 +47,7 @@ export default {
       handler(nv) {
         const { name } = nv;
         let obj = this.instroduceList.find((item) => item.url === name);
-        this.title = obj && obj.name;
+        this.title = obj && obj.url;
       },
       deep: true,
       immediate: true,
@@ -46,8 +55,11 @@ export default {
   },
   methods: {
     handleTabSwitch(item) {
-      this.title = item.name;
+      this.title = item.url;
       this.$router.push({ name: item.url });
+    },
+    handleClick(tab) {
+      this.$router.push({ name: tab.name });
     },
   },
 };
@@ -57,6 +69,10 @@ export default {
 @height: 400px;
 .company-introduce {
   height: 100%;
+  width: 100%;
+  * {
+    box-sizing: border-box;
+  }
   h3 {
     line-height: 60px;
     font-size: 28px;
@@ -73,6 +89,10 @@ export default {
   .content {
     width: 1200px;
     margin: 0 auto;
+  }
+  .isMobile {
+    width: 100%;
+    padding: 0.2rem;
   }
   .introduce-list {
     display: flex;

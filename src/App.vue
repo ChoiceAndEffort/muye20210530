@@ -32,7 +32,7 @@ export default {
   },
 
   mounted() {
-    //375像素宽设计稿  ->  50px      所有设计稿上的像素均需除以50计算为得到的rem
+    // 375像素宽设计稿  ->  50px      所有设计稿上的像素均需除以50计算为得到的rem
     // if (this.isMobile) {
     //   this.$nextTick(function () {
     //     // 适配不同屏幕，改变根font-size值
