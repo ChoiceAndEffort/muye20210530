@@ -1,6 +1,6 @@
 <template>
   <div class="words" :class="{isMobile:isMobile}">
-    <div class="title">总经理寄语</div>
+    <div class="title" v-if="!isMobile">总经理寄语</div>
     <div class="top">
       <div class="left">
         <el-image style="width: 300px; height: 300px" :src="leader" fit="cover"></el-image>

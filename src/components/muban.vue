@@ -1,5 +1,5 @@
 <template>
-  <div class="mu-ban">
+  <div class="mu-ban" :class="{pc:!isMobile}">
     <Header />
     <div class="mu-ban-content">
       <slot />
@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "MuBan",
+  inject: ["isMobile"],
   data() {
     return {};
   },
@@ -23,9 +24,11 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  // min-width: 1000px;
   .mu-ban-content {
     flex: 1;
   }
+}
+.pc {
+  min-width: 1000px;
 }
 </style>

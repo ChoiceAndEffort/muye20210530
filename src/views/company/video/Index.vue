@@ -1,12 +1,13 @@
 <template>
   <div class="video">
-    <div class="title">视频中心</div>
+    <div class="title" v-if="!isMobile">视频中心</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Video",
+  inject: ["isMobile"],
   data() {
     return {};
   },

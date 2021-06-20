@@ -1,6 +1,6 @@
 <template>
   <div class="history">
-    <div class="title">发展历程</div>
+    <div class="title" v-if="!isMobile">发展历程</div>
     <el-timeline>
       <el-timeline-item timestamp="2021/04/14" placement="top">
         <el-card>
@@ -21,6 +21,7 @@
 <script>
 export default {
   name: "History",
+    inject: ["isMobile"],
   data() {
     return {};
   },

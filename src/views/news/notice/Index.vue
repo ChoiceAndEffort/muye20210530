@@ -1,6 +1,6 @@
 <template>
   <div class="notice">
-    <div class="title">公司动态</div>
+    <div class="title" v-if="!isMobile">公司动态</div>
     <ul>
       <li
         v-for="(item,index) in  dealList"
@@ -24,6 +24,7 @@
 import { mockNewsList } from "@/public/companyList";
 export default {
   name: "ContactUs",
+  inject: ["isMobile"],
   data() {
     return {
       mockNewsList,

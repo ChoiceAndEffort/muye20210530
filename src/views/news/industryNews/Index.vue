@@ -1,12 +1,13 @@
 <template>
   <div class="industry-news">
-    <div class="title">行业动态</div>
+    <div class="title" v-if="!isMobile">行业动态</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "IndustryNews",
+  inject: ["isMobile"],
   data() {
     return {};
   },

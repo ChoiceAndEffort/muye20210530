@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-us">
+  <div class="contact-us" :class="{pc:!isMobile}">
     <div class="contact-us-img">
       <img :src="contact" alt srcset />
     </div>
@@ -14,6 +14,7 @@ import contact from "@/assets/images/contact.jpg";
 
 export default {
   name: "ContactUs",
+  inject: ["isMobile"],
   data() {
     return {
       contact,
@@ -34,8 +35,11 @@ export default {
     }
   }
   .content {
-    width: 1200px;
-    margin: 0 auto;
+    width: 100%;
   }
+}
+.pc {
+  width: 1200px;
+  margin: 0 auto;
 }
 </style>

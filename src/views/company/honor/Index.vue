@@ -1,12 +1,13 @@
 <template>
   <div class="honor">
-    <div class="title">荣誉资质</div>
+    <div class="title" v-if="!isMobile">荣誉资质</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Honor",
+  inject: ["isMobile"],
   data() {
     return {};
   },

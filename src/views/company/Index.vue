@@ -92,7 +92,7 @@ export default {
   }
   .isMobile {
     width: 100%;
-    padding: 0.2rem;
+    padding: 10px;
   }
   .introduce-list {
     display: flex;
