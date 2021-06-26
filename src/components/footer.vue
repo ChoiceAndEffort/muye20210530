@@ -16,6 +16,10 @@
             <span class="title">公司邮箱：</span>
             <span class="title-content"></span>
           </li>
+           <li>
+            <span class="title">备案号：</span>
+            <span class="title-content">粤ICP备2021086832号-1</span>
+          </li>
         </ul>
       </div>
       <div class="content-right"></div>

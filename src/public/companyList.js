@@ -119,6 +119,17 @@ export const menuList = [
 
 export const mockNewsList = [
   {
+    id: 4000,
+    type: 1,
+    news: "武汉市农科院总畜牧师、三级教授 高其双 为我司做集团化消费循环策划  ",
+    time: "2021-6-26",
+    headerImg:
+      "http://m.qpic.cn/psc?/V50p6Wmz0YU4a83HH1Of1QJ1TY1Vfn1a/TmEUgtj9EK6.7V8ajmQrEFU9jRTqpMLiKc6Uyz9yXTRebPqYxoviUSVDuL0EpvdcWMzyJyDKgnaEx6tkY7ovlGpT9Bs0wSPoPw7*zZWcMWo!/b&bo=IANoAQAAAAABF3o!&rf=viewer_4",
+    images: [
+      "http://m.qpic.cn/psc?/V50p6Wmz0YU4a83HH1Of1QJ1TY1Vfn1a/TmEUgtj9EK6.7V8ajmQrEFU9jRTqpMLiKc6Uyz9yXTRebPqYxoviUSVDuL0EpvdcWMzyJyDKgnaEx6tkY7ovlGpT9Bs0wSPoPw7*zZWcMWo!/b&bo=IANoAQAAAAABF3o!&rf=viewer_4",
+    ],
+  },
+  {
     id: 4001,
     type: 1,
     news:
