@@ -1,5 +1,5 @@
 <template>
-  <div class="circle">
+  <div class="circle" :class="{mobile:isMobile}">
     <h3>企业介绍</h3>
     <div class="content" @click="handleRouterPush">
       <p v-if="!isMobile">集团化消费循环农业食材专供小镇</p>
@@ -65,6 +65,12 @@ export default {
       animation: mymove 5s infinite;
       -webkit-animation: mymove 5s infinite alternate; /*Safari and Chrome*/
     }
+  }
+}
+
+.mobile {
+  .content {
+    height: 400px;
   }
 }
 

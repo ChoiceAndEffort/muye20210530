@@ -1,5 +1,5 @@
 <template>
-  <div class="news">
+  <div class="news" :class="{mobile:isMobile}">
     <h3>公司新闻</h3>
     <div class="content">
       <ul>
@@ -11,10 +11,7 @@
           <div class="top">
             <div class="left">{{status[item.type]}}</div>
             <div class="center">{{item.news}}</div>
-            <div class="right">
-              {{item.time}}
-              <!-- <i class="el-icon-arrow-right"></i> -->
-            </div>
+            <div class="right">{{item.time}}</div>
           </div>
           <el-divider></el-divider>
         </li>
@@ -29,6 +26,7 @@ import { mockNewsList } from "@/public/companyList";
 
 export default {
   name: "News",
+  inject: ["isMobile"],
   data() {
     return {
       copyNewsList: mockNewsList.slice(0, 5),
@@ -76,8 +74,15 @@ export default {
       align-items: center;
       width: 100%;
       .center {
-        width: 60%;
+        width: 70%;
         text-align: left;
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
       }
       .left {
         text-align: center;
@@ -91,6 +96,22 @@ export default {
       }
       .right {
         text-align: right;
+        width: 15%;
+      }
+    }
+  }
+}
+.mobile {
+  li {
+    width: 100%;
+    .top {
+      .left {
+        width: 20%;
+      }
+      .center {
+        width: 55%;
+      }
+      .right {
         width: 25%;
       }
     }

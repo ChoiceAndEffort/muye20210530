@@ -124,9 +124,9 @@ export const mockNewsList = [
     news: "武汉市农科院总畜牧师、三级教授 高其双 为我司做集团化消费循环策划  ",
     time: "2021-6-26",
     headerImg:
-      "http://m.qpic.cn/psc?/V50p6Wmz0YU4a83HH1Of1QJ1TY1Vfn1a/TmEUgtj9EK6.7V8ajmQrEFU9jRTqpMLiKc6Uyz9yXTRebPqYxoviUSVDuL0EpvdcWMzyJyDKgnaEx6tkY7ovlGpT9Bs0wSPoPw7*zZWcMWo!/b&bo=IANoAQAAAAABF3o!&rf=viewer_4",
+      "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/557b08a414e5403699ee183df063d137~tplv-k3u1fbpfcp-watermark.image",
     images: [
-      "http://m.qpic.cn/psc?/V50p6Wmz0YU4a83HH1Of1QJ1TY1Vfn1a/TmEUgtj9EK6.7V8ajmQrEFU9jRTqpMLiKc6Uyz9yXTRebPqYxoviUSVDuL0EpvdcWMzyJyDKgnaEx6tkY7ovlGpT9Bs0wSPoPw7*zZWcMWo!/b&bo=IANoAQAAAAABF3o!&rf=viewer_4",
+      "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/557b08a414e5403699ee183df063d137~tplv-k3u1fbpfcp-watermark.image",
     ],
   },
   {

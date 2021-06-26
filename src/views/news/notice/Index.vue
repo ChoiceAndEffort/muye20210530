@@ -1,5 +1,5 @@
 <template>
-  <div class="notice">
+  <div class="notice" :class="{mobile:isMobile}">
     <div class="title" v-if="!isMobile">公司动态</div>
     <ul>
       <li
@@ -58,23 +58,44 @@ export default {
   li {
     width: 100%;
     display: flex;
-    padding: 10px 0;
+    padding: 5px 0;
     border-bottom: 1px dashed #ccc;
     align-items: center;
     .left {
       width: 10%;
       .image {
-        width: 90px;
-        height: 90px;
+        width: 60px;
+        height: 60px;
         border-radius: 10px;
       }
     }
     .center {
       width: 80%;
-      padding: 10px;
+      padding: 0 10px;
     }
     .right {
       width: 10%;
+    }
+  }
+}
+.mobile {
+  li {
+    width: 100%;
+    .left {
+      width: 20%;
+    }
+    .center {
+      width: 55%;
+      text-overflow: -o-ellipsis-lastline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .right {
+      width: 25%;
     }
   }
 }

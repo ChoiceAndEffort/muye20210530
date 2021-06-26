@@ -41,8 +41,8 @@ export default {
 <style lang="less" scoped>
 .news-detail {
   p {
-    text-align: center;
-    line-height: 60px;
+    text-align: left;
+    line-height: 30px;
   }
 }
 </style>

@@ -150,8 +150,21 @@ export default {
   .van-collapse-item-father {
     padding: 0px 16px;
     .son {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #ebedf0;
       padding: 10px 0;
+    }
+    .son:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: #ebedf0;
+      width: 100%;
+      height: 1px;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
     }
   }
   .van-collapse-item-son {
