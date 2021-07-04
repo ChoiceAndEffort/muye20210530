@@ -87,7 +87,6 @@ let routes = [
         name: "IndustryNews",
         component: () => import("@/views/news/industryNews/Index.vue"),
       },
-
       {
         path: "/news/detail",
         name: "NewsDetail",

@@ -2,29 +2,33 @@
   <div class="notice" :class="{mobile:isMobile}">
     <div class="title" v-if="!isMobile">公司动态</div>
     <ul>
-      <li
-        v-for="(item,index) in  copyNewsList"
-        :key="index"
-        @click="handleRouterDetail(item.type,item.id)"
-      >
-        <div class="left">
+      <li v-for="(item,index) in  copyNewsList" :key="index">
+        <div class="left" @click="handleRouterDetail(item.type,item.id)">
           <el-image :src="item.headerImg&&getImage(item.headerImg)" fit="cover" class="image"></el-image>
         </div>
 
-        <div class="center">{{ item.title}}</div>
-        <div class="right">{{ item.date}}</div>
+        <div class="center" @click="handleRouterDetail(item.type,item.id)">{{ item.title}}</div>
+        <div class="right" @click="handleRouterDetail(item.type,item.id)">{{ item.date}}</div>
+        <div class="operate-aere" v-if="!isMobile">
+          <el-button @click="handleEditClick(item)" type="text" size="small">编辑</el-button>
+          <el-button @click="handleDeleteClick(item)" type="text" size="small">删除</el-button>
+        </div>
       </li>
     </ul>
-
+    <edit-news />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import dealImage from "@/utils/dealImage.js";
+import editNews from "../editNews/Index.vue";
 export default {
   name: "ContactUs",
   inject: ["isMobile"],
+  components: {
+    editNews,
+  },
   data() {
     return {
       copyNewsList: undefined,
@@ -58,6 +62,8 @@ export default {
         headerImg && headerImg.split(";").map((item) => dealImage(item))[0]
       );
     },
+    handleEditClick() {},
+    handleDeleteClick() {},
   },
   created() {
     this.getCompanyNewsApi();
