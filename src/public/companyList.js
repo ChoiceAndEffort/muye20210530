@@ -4,12 +4,6 @@ import yangzhu from "@/assets/images/yangzhu.png";
 import shucai from "@/assets/images/shucai.jpg";
 import luyou from "@/assets/images/lvyou.png";
 
-import zhidaotou from "@/assets/images/zhidaotou.png";
-import zhidao1 from "@/assets/images/zhidao1.png";
-import zhidao2 from "@/assets/images/zhidao2.png";
-import zhidao3 from "@/assets/images/zhidao3.png";
-
-import duanwutou from "@/assets/images/duanwutou.png";
 export const instroduceList = [
   {
     name: "总经理寄语",
@@ -114,37 +108,5 @@ export const menuList = [
     url: "",
     index: "5",
     children: connactUsList,
-  },
-];
-
-export const mockNewsList = [
-  {
-    id: 4000,
-    type: 1,
-    news: "武汉市农科院总畜牧师、三级教授 高其双 为我司做集团化消费循环策划  ",
-    time: "2021-6-26",
-    headerImg:
-      "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/557b08a414e5403699ee183df063d137~tplv-k3u1fbpfcp-watermark.image",
-    images: [
-      "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/557b08a414e5403699ee183df063d137~tplv-k3u1fbpfcp-watermark.image",
-    ],
-  },
-  {
-    id: 4001,
-    type: 1,
-    news:
-      "五月初五是端午，祝福心意全送到：愿你“粽”是快乐，“粽”是微笑，“粽”是喜悦，“粽”是好运，“粽”是成功，“粽”是幸福，“粽”是美好",
-    time: "2021-6-14",
-    headerImg: duanwutou,
-    images: [],
-  },
-  {
-    id: 4002,
-    type: 1,
-    news:
-      "6月13日武汉市农科院高级畜牧师高其双，长江大学高锈纺教授来咸宁宇晨农牧现场考察指导工作。",
-    time: "2021-6-13",
-    headerImg: zhidaotou,
-    images: [zhidao1, zhidao2, zhidao3],
   },
 ];

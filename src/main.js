@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "@/styles/reset.less";
+import ajax from "./ajax/axios";
 
 import "element-ui/lib/theme-chalk/index.css";
 import {
@@ -46,6 +47,7 @@ Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Image);
 
+Vue.prototype.$ajax = ajax;
 Vue.config.productionTip = false;
 
 new Vue({

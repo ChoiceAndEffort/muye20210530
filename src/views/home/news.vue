@@ -10,8 +10,8 @@
         >
           <div class="top">
             <div class="left">{{status[item.type]}}</div>
-            <div class="center">{{item.news}}</div>
-            <div class="right">{{item.time}}</div>
+            <div class="center">{{item.title}}</div>
+            <div class="right">{{item.date}}</div>
           </div>
           <el-divider></el-divider>
         </li>
@@ -22,14 +22,12 @@
 </template>
 
 <script>
-import { mockNewsList } from "@/public/companyList";
-
 export default {
   name: "News",
   inject: ["isMobile"],
   data() {
     return {
-      copyNewsList: mockNewsList.slice(0, 5),
+      copyNewsList: undefined,
       status: {
         1: "公司动态",
         2: "行业动态",
@@ -38,17 +36,31 @@ export default {
   },
   methods: {
     handAddMore() {
-      this.copyNewsList = mockNewsList;
+      // this.copyNewsList = mockNewsList;
     },
     handleRouterDetail(type, id) {
       this.$router.push({
         name: "NewsDetail",
         query: {
-          type,
+          // type,
           id,
         },
       });
     },
+    async getCompanyNewsApi() {
+      let res = await this.$ajax.get("/api/companyNews/list", {
+        params: {
+          page: 1,
+          pageSize: 5,
+        },
+      });
+      if (res.code === 200) {
+        this.copyNewsList = res.data.list || [];
+      }
+    },
+  },
+  created() {
+    this.getCompanyNewsApi();
   },
 };
 </script>
@@ -104,12 +116,14 @@ export default {
 .mobile {
   li {
     width: 100%;
+    font-size: 14px;
     .top {
       .left {
         width: 20%;
       }
       .center {
         width: 55%;
+        line-height: 20px;
       }
       .right {
         width: 25%;

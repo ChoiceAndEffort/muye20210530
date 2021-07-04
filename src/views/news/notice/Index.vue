@@ -3,16 +3,16 @@
     <div class="title" v-if="!isMobile">公司动态</div>
     <ul>
       <li
-        v-for="(item,index) in  dealList"
+        v-for="(item,index) in  copyNewsList"
         :key="index"
         @click="handleRouterDetail(item.type,item.id)"
       >
         <div class="left">
-          <el-image :src="item.headerImg" fit="cover" class="image"></el-image>
+          <el-image :src="item.headerImg&&getImage(item.headerImg)" fit="cover" class="image"></el-image>
         </div>
 
-        <div class="center">{{ item.news}}</div>
-        <div class="right">{{ item.time}}</div>
+        <div class="center">{{ item.title}}</div>
+        <div class="right">{{ item.date}}</div>
       </li>
     </ul>
 
@@ -21,30 +21,46 @@
 </template>
 
 <script>
-import { mockNewsList } from "@/public/companyList";
+import dealImage from "@/utils/dealImage.js";
 export default {
   name: "ContactUs",
   inject: ["isMobile"],
   data() {
     return {
-      mockNewsList,
+      copyNewsList: undefined,
+      filters: {
+        page: 1,
+        pageSize: 5,
+        type: 1,
+      },
     };
   },
-  computed: {
-    dealList() {
-      return this.mockNewsList.filter((item) => item.type === 1);
-    },
-  },
+
   methods: {
     handleRouterDetail(type, id) {
       this.$router.push({
         name: "NewsDetail",
         query: {
-          type,
           id,
         },
       });
     },
+    async getCompanyNewsApi() {
+      let res = await this.$ajax.get("/api/companyNews/list", {
+        params: this.filters,
+      });
+      if (res.code === 200) {
+        this.copyNewsList = res.data.list || [];
+      }
+    },
+    getImage(headerImg) {
+      return (
+        headerImg && headerImg.split(";").map((item) => dealImage(item))[0]
+      );
+    },
+  },
+  created() {
+    this.getCompanyNewsApi();
   },
 };
 </script>
@@ -96,6 +112,7 @@ export default {
     }
     .right {
       width: 25%;
+      font-size: 14px;
     }
   }
 }

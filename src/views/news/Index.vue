@@ -16,7 +16,7 @@
         >{{item.name}}</li>
       </ul>
       <div class="son-content">
-        <router-view />
+        <router-view v-if="isUpdate" />
       </div>
     </div>
   </div>
@@ -33,6 +33,7 @@ export default {
       news,
       newsList,
       title: "Notice",
+      isUpdate: true,
     };
   },
 
@@ -40,11 +41,15 @@ export default {
     //处理刷新后默认高亮
     $route: {
       handler(nv) {
-        // const { name } = nv;
-        // if (name === "IndustryNews") {
-        //   this.$router.push({ name: "Home" });
-        // }
-        console.log("nv", nv);
+        const { name } = nv;
+        this.title = name;
+
+        if (name === "Home") {
+          this.isUpdate = false;
+          return false;
+        }
+
+        this.isUpdate = true;
       },
       deep: true,
       immediate: true,
@@ -59,6 +64,7 @@ export default {
       this.$router.push({ name: tab.name });
     },
   },
+  created() {},
 };
 </script>
 

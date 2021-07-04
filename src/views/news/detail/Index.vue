@@ -1,9 +1,9 @@
 <template>
   <div class="news-detail">
-    <p>{{getListObj&&getListObj.news}}</p>
+    <p>{{detail&&detail.news}}</p>
 
     <ul>
-      <li v-for="(item,index) in getListObj&&getListObj.images" :key="index">
+      <li v-for="(item,index) in detail&&detail.images" :key="index">
         <el-image :src="item" fit="cover"></el-image>
       </li>
     </ul>
@@ -11,30 +11,34 @@
 </template>
 
 <script>
-import { mockNewsList } from "@/public/companyList";
+import dealImage from "@/utils/dealImage.js";
 export default {
   data() {
     return {
-      mockNewsList,
-      id: "",
+      query: this.$route.query,
+      detail: undefined,
     };
   },
-  computed: {
-    getListObj() {
-      return this.mockNewsList.find((item) => item.id === this.id);
+
+  methods: {
+    async getCompanyNewsOneApi() {
+      let res = await this.$ajax.get("/api/companyNews/detail", {
+        params: {
+          id: this.query.id,
+        },
+      });
+      if (res.code === 200) {
+        let { headerImg = "" } = res.data;
+
+        this.detail = res.data;
+        this.detail.images =
+          headerImg && headerImg.split(";").map((item) => dealImage(item));
+      }
     },
   },
-  watch: {
-    $route: {
-      handler() {
-        this.id = parseInt(this.$route.query.id);
-      },
-      deep: true,
-      immediate: true,
-    },
+  created() {
+    this.getCompanyNewsOneApi();
   },
-  methods: {},
-  created() {},
 };
 </script>
 
