@@ -1,8 +1,11 @@
 # muye20210530xianning
 
 ## Project setup
+
+###  依赖要用cnpm install 安装，不然图片loader会报错；
+
 ```
-npm install
+cnpm install
 ```
 
 ### Compiles and hot-reloads for development

@@ -47,6 +47,21 @@ export default {
   p {
     text-align: left;
     line-height: 30px;
+    font-size: 20px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    li {
+      width: 100%;
+      margin-bottom: 10px;
+
+      /deep/.el-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 </style>
