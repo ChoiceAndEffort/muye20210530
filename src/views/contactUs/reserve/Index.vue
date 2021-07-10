@@ -1,6 +1,9 @@
 <template>
   <div class="reserve">
-      旅游预订
+    <h3>旅游预订</h3>
+    <div class="phone">
+      <el-icon class="el-icon-phone-outline"></el-icon>:18171438963
+    </div>
   </div>
 </template>
 
@@ -15,8 +18,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.reserve{
+.reserve {
   padding: 10px 0;
   min-height: 400px;
+  h3 {
+    font-size: 36px;
+  }
+  .phone {
+    font-size: 48px;
+    line-height: 380px;
+  }
 }
 </style>

@@ -8,7 +8,9 @@ import zhidaotou from "@/assets/images/zhidaotou.png";
 import zhidao1 from "@/assets/images/zhidao1.png";
 import zhidao2 from "@/assets/images/zhidao2.png";
 import zhidao3 from "@/assets/images/zhidao3.png";
-
+import zhongzhu1 from "@/assets/images/zhongzhu1.png";
+import zhongzhu2 from "@/assets/images/zhongzhu2.png";
+import zhongzhu3 from "@/assets/images/zhongzhu3.png";
 import duanwutou from "@/assets/images/duanwutou.png";
 export const instroduceList = [
   {
@@ -146,5 +148,14 @@ export const mockNewsList = [
     time: "2021-6-13",
     headerImg: zhidaotou,
     images: [zhidao1, zhidao2, zhidao3],
+  },
+  {
+    id: 4003,
+    type: 1,
+    news:
+      "公司代表参加2020年度全国种猪大赛（湖北赛区）暨第20届中国武汉种猪拍卖会,并获取供货种猪评选荣誉",
+    time: "2020-10-18",
+    headerImg: zhongzhu1,
+    images: [zhongzhu1, zhongzhu2, zhongzhu3],
   },
 ];
