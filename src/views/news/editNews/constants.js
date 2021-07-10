@@ -1,26 +1,26 @@
 export const rules = {
-    name: [
-      { required: true, message: "请输入朝代名字", trigger: ["blur", "change"] }
-    ],
-    time: [
-      {
-        required: true,
-        message: "请输入朝代存在时间",
-        trigger: ["blur", "change"]
-      }
-    ],
-    emperor: [
-      {
-        required: true,
-        message: "请输入开国皇帝",
-        trigger: ["blur", "change"]
-      }
-    ],
-    city: [
-      {
-        required: true,
-        message: "请输入朝代位置",
-        trigger: ["blur", "change"]
-      }
-    ]
-  };
+  title: [
+    { required: true, message: "请输入新闻标题", trigger: ["blur", "change"] },
+  ],
+  date: [
+    {
+      required: true,
+      message: "请选择新闻时间",
+      trigger: ["blur", "change"],
+    },
+  ],
+  headerImg: [
+    {
+      required: true,
+      message: "请输入图片地址",
+      trigger: ["blur", "change"],
+    },
+  ],
+  news: [
+    {
+      required: true,
+      message: "请输入新闻描述",
+      trigger: ["blur", "change"],
+    },
+  ],
+};

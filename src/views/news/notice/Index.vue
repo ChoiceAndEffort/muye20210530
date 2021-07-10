@@ -1,21 +1,40 @@
 <template>
-  <div class="notice" :class="{mobile:isMobile}">
+  <div class="notice" :class="{ mobile: isMobile }">
     <div class="title" v-if="!isMobile">公司动态</div>
+    <el-button @click="handleAdd"> 新增 </el-button>
     <ul>
-      <li v-for="(item,index) in  copyNewsList" :key="index">
-        <div class="left" @click="handleRouterDetail(item.type,item.id)">
-          <el-image :src="item.headerImg&&getImage(item.headerImg)" fit="cover" class="image"></el-image>
+      <li v-for="(item, index) in copyNewsList" :key="index">
+        <div class="left" @click="handleRouterDetail(item.type, item.id)">
+          <el-image
+            :src="item.headerImg && getImage(item.headerImg)"
+            fit="cover"
+            class="image"
+          ></el-image>
         </div>
 
-        <div class="center" @click="handleRouterDetail(item.type,item.id)">{{ item.title}}</div>
-        <div class="right" @click="handleRouterDetail(item.type,item.id)">{{ item.date}}</div>
+        <div class="center" @click="handleRouterDetail(item.type, item.id)">
+          {{ item.title }}
+        </div>
+        <div class="right" @click="handleRouterDetail(item.type, item.id)">
+          {{ item.date }}
+        </div>
         <div class="operate-aere" v-if="!isMobile">
-          <el-button @click="handleEditClick(item)" type="text" size="small">编辑</el-button>
-          <el-button @click="handleDeleteClick(item)" type="text" size="small">删除</el-button>
+          <el-button @click="handleEditClick(item)" type="text" size="small"
+            >编辑</el-button
+          >
+          <el-button @click="handleDeleteClick(item)" type="text" size="small"
+            >删除</el-button
+          >
         </div>
       </li>
     </ul>
-    <edit-news />
+    <edit-news
+      @cancel="handleCancel"
+      :dialogFormVisible="dialogFormVisible"
+      :fromPage="fromPage"
+      :dialogTitle="dialogTitle"
+      v-if="dialogFormVisible"
+    />
     <router-view></router-view>
   </div>
 </template>
@@ -37,6 +56,9 @@ export default {
         pageSize: 5,
         type: 1,
       },
+      dialogFormVisible: false,
+      dialogTitle: "新增新闻",
+      fromPage: "", //1-新增,2-编辑
     };
   },
 
@@ -62,8 +84,23 @@ export default {
         headerImg && headerImg.split(";").map((item) => dealImage(item))[0]
       );
     },
-    handleEditClick() {},
-    handleDeleteClick() {},
+    handleAdd() {
+      this.dialogTitle = "新增新闻";
+      this.dialogFormVisible = true;
+      this.fromPage = 1;
+    },
+    handleEditClick() {
+      this.dialogFormVisible = true;
+      this.dialogTitle = "修改新闻";
+      this.fromPage = 2;
+    },
+
+    async handleDeleteClick() {
+      // let res = await this.$ajax.post("/api/companyNews/list", {});
+    },
+    handleCancel() {
+      this.dialogFormVisible = false;
+    },
   },
   created() {
     this.getCompanyNewsApi();

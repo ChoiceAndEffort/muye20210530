@@ -13,10 +13,17 @@
       </el-form-item>
 
       <el-form-item label="时间" prop="date">
-        <el-date-picker type="date" placeholder="选择日期" v-model="formData.date"></el-date-picker>
+        <el-date-picker
+          type="date"
+          placeholder="选择日期"
+          v-model="formData.date"
+        ></el-date-picker>
       </el-form-item>
       <el-form-item label="图片地址" prop="headerImg">
-        <el-input v-model.trim="formData.headerImg" autocomplete="off"></el-input>
+        <el-input
+          v-model.trim="formData.headerImg"
+          autocomplete="off"
+        ></el-input>
       </el-form-item>
       <el-form-item label="描述" prop="news">
         <el-input v-model.trim="formData.news" type="textarea"></el-input>
@@ -24,7 +31,9 @@
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="handleCancel">取 消</el-button>
-      <el-button type="primary" @click="handlerConfirm('ruleForm')">确 定</el-button>
+      <el-button type="primary" @click="handlerConfirm('ruleForm')"
+        >确 定</el-button
+      >
     </div>
   </div>
 </template>
@@ -39,6 +48,18 @@ const formData = {
   date: "",
 };
 export default {
+  props: {
+    fromPage: {
+      type: Number,
+      required: false,
+      default: () => 1,
+    },
+    initData: {
+      type: Object,
+      required: false,
+      default: () => {},
+    },
+  },
   data() {
     return {
       formData: Object.assign({}, formData),
@@ -48,6 +69,33 @@ export default {
   methods: {
     handleCancel() {
       this.$emit("update", false);
+    },
+    async handlerConfirm(formName) {
+      const validate = await this.$refs[formName].validate().catch(() => false);
+      if (validate) {
+        if (this.fromPage !== 1) {
+          this.handleEditApi();
+        } else {
+          this.handleAddApi();
+        }
+      }
+    },
+
+    async handleAddApi() {
+      let res = await this.$ajax.post("/api/companyNews/list", {
+        ...this.fromPage,
+      });
+      if (res.code === 200) {
+        this.copyNewsList = res.data.list || [];
+      }
+    },
+    async handleEditApi() {
+      let res = await this.$ajax.post("/api/companyNews/list", {
+        ...this.fromPage,
+      });
+      if (res.code === 200) {
+        this.copyNewsList = res.data.list || [];
+      }
     },
   },
 };
