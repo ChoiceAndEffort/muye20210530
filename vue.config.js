@@ -1,7 +1,7 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
-let target = "http://127.0.0.1:7002"; // 代理的路径
+let target = "http://127.0.0.1:7001"; // 代理的路径
 const ENV = process.env.NODE_ENV;
 
 let publicPath = "/"; //开发环境

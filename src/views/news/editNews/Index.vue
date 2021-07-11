@@ -20,7 +20,11 @@
           ></el-input>
         </el-form-item>
         <el-form-item label="类型" prop="type">
-          <el-select v-model="formData.type" placeholder="请选择">
+          <el-select
+            v-model.number="formData.type"
+            placeholder="请选择"
+            :disabled="true"
+          >
             <el-option label="公司动态" :value="1"></el-option>
             <el-option label="行业动态" :value="2"></el-option>
           </el-select>
@@ -58,7 +62,7 @@
 import { rules } from "./constants";
 const formData = {
   title: undefined,
-  type: "",
+  type: 1,
   headerImg: "",
   news: "",
   date: "",
@@ -74,6 +78,35 @@ export default {
       type: String,
       required: false,
       default: () => "",
+    },
+    fromPage: {
+      type: Number,
+      required: false,
+      default: () => 1,
+    },
+    handleAddApi: {
+      type: Function,
+      required: false,
+      default: () => {
+        return () => {};
+      },
+    },
+    handleEditApi: {
+      type: Function,
+      required: false,
+      default: () => {
+        return () => {};
+      },
+    },
+    initData: {
+      type: Object,
+      required: false,
+      default: () => {},
+    },
+    type: {
+      type: Number,
+      required: false,
+      default: () => 1,
     },
   },
   components: {},
@@ -92,29 +125,18 @@ export default {
       const validate = await this.$refs[formName].validate().catch(() => false);
       if (validate) {
         if (this.fromPage !== 1) {
-          this.handleEditApi();
+          this.handleEditApi(this.formData);
         } else {
-          this.handleAddApi();
+          this.handleAddApi(this.formData);
         }
       }
     },
-
-    async handleAddApi() {
-      let res = await this.$ajax.get("/api/companyNews/list", {
-        params: this.formData,
-      });
-      if (res.code === 200) {
-        console.log("res", res);
-      }
-    },
-    async handleEditApi() {
-      let res = await this.$ajax.get("/api/companyNews/list", {
-        params: this.formData,
-      });
-      if (res.code === 200) {
-        console.log("res", res);
-      }
-    },
+  },
+  created() {
+    this.formData.type = this.type;
+    if (this.fromPage === 2) {
+      this.formData = Object.assign({}, this.initData);
+    }
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="notice" :class="{ mobile: isMobile }">
     <div class="title" v-if="!isMobile">公司动态</div>
-    <el-button @click="handleAdd"> 新增 </el-button>
+    <el-button @click="handleAdd" v-if="!isMobile && isAdmin"> 新增 </el-button>
     <ul>
       <li v-for="(item, index) in copyNewsList" :key="index">
         <div class="left" @click="handleRouterDetail(item.type, item.id)">
@@ -18,7 +18,7 @@
         <div class="right" @click="handleRouterDetail(item.type, item.id)">
           {{ item.date }}
         </div>
-        <div class="operate-aere" v-if="!isMobile">
+        <div class="operate-aere" v-if="!isMobile && isAdmin">
           <el-button @click="handleEditClick(item)" type="text" size="small"
             >编辑</el-button
           >
@@ -34,6 +34,10 @@
       :fromPage="fromPage"
       :dialogTitle="dialogTitle"
       v-if="dialogFormVisible"
+      :handleAddApi="handleAddApi"
+      :handleEditApi="handleEditApi"
+      :initData="initData"
+      :type="1"
     />
     <router-view></router-view>
   </div>
@@ -58,10 +62,15 @@ export default {
       },
       dialogFormVisible: false,
       dialogTitle: "新增新闻",
-      fromPage: "", //1-新增,2-编辑
+      fromPage: 1, //1-新增,2-编辑
+      initData: undefined,
     };
   },
-
+  computed: {
+    isAdmin() {
+      return sessionStorage.getItem("isAdmin") === "yuchen";
+    },
+  },
   methods: {
     handleRouterDetail(type, id) {
       this.$router.push({
@@ -89,16 +98,45 @@ export default {
       this.dialogFormVisible = true;
       this.fromPage = 1;
     },
-    handleEditClick() {
+    handleEditClick(v) {
       this.dialogFormVisible = true;
       this.dialogTitle = "修改新闻";
       this.fromPage = 2;
+      this.initData = v;
+      console.log("thisinitData", this.initData);
     },
 
-    async handleDeleteClick() {
-      // let res = await this.$ajax.post("/api/companyNews/list", {});
-    },
     handleCancel() {
+      this.dialogFormVisible = false;
+    },
+
+    async handleDeleteClick(item) {
+      let res = await this.$ajax.post("/api/companyNews/deleteNews", {
+        id: item.id,
+      });
+      console.log("res", res);
+      this.getCompanyNewsApi();
+    },
+
+    async handleAddApi(value) {
+      let res = await this.$ajax.post("/api/companyNews/addNews", {
+        ...value,
+      });
+      if (res.code === 200) {
+        console.log("res11111111111", res);
+        this.getCompanyNewsApi();
+      }
+      this.dialogFormVisible = false;
+    },
+
+    async handleEditApi(value) {
+      let res = await this.$ajax.post("/api/companyNews/updateNews", {
+        ...value,
+      });
+      if (res.code === 200) {
+        console.log("res22222222222", res);
+        this.getCompanyNewsApi();
+      }
       this.dialogFormVisible = false;
     },
   },

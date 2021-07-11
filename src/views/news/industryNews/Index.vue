@@ -1,30 +1,57 @@
 <template>
-  <div class="industry-news" :class="{mobile:isMobile}">
+  <div class="industry-news" :class="{ mobile: isMobile }">
     <div class="title" v-if="!isMobile">行业动态</div>
+    <el-button @click="handleAdd" v-if="!isMobile && isAdmin"> 新增 </el-button>
     <ul>
       <li
-        v-for="(item,index) in  copyNewsList"
+        v-for="(item, index) in copyNewsList"
         :key="index"
-        @click="handleRouterDetail(item.type,item.id)"
+        @click="handleRouterDetail(item.type, item.id)"
       >
         <div class="left">
-          <el-image :src="item.headerImg&&getImage(item.headerImg)" fit="cover" class="image"></el-image>
+          <el-image
+            :src="item.headerImg && getImage(item.headerImg)"
+            fit="cover"
+            class="image"
+          ></el-image>
         </div>
 
-        <div class="center">{{ item.title}}</div>
-        <div class="right">{{ item.date}}</div>
+        <div class="center">{{ item.title }}</div>
+        <div class="right">{{ item.date }}</div>
+        <div class="operate-aere" v-if="!isMobile && isAdmin">
+          <el-button @click="handleEditClick(item)" type="text" size="small"
+            >编辑</el-button
+          >
+          <el-button @click="handleDeleteClick(item)" type="text" size="small"
+            >删除</el-button
+          >
+        </div>
       </li>
     </ul>
-
+    <edit-news
+      @cancel="handleCancel"
+      :dialogFormVisible="dialogFormVisible"
+      :fromPage="fromPage"
+      :dialogTitle="dialogTitle"
+      v-if="dialogFormVisible"
+      :handleAddApi="handleAddApi"
+      :handleEditApi="handleEditApi"
+      :initData="initData"
+      :type="2"
+    />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import dealImage from "@/utils/dealImage.js";
+import editNews from "../editNews/Index.vue";
 export default {
   name: "IndustryNews",
   inject: ["isMobile"],
+  components: {
+    editNews,
+  },
   data() {
     return {
       copyNewsList: undefined,
@@ -33,7 +60,16 @@ export default {
         pageSize: 5,
         type: 2,
       },
+      dialogFormVisible: false,
+      dialogTitle: "新增新闻",
+      fromPage: 1, //1-新增,2-编辑
+      initData: undefined,
     };
+  },
+  computed: {
+    isAdmin() {
+      return sessionStorage.getItem("isAdmin") === "yuchen";
+    },
   },
   methods: {
     async getCompanyNewsApi() {
@@ -56,6 +92,50 @@ export default {
           id,
         },
       });
+    },
+    handleAdd() {
+      this.dialogTitle = "新增新闻";
+      this.dialogFormVisible = true;
+      this.fromPage = 1;
+    },
+    handleEditClick(v) {
+      this.dialogFormVisible = true;
+      this.dialogTitle = "修改新闻";
+      this.fromPage = 2;
+      this.initData = v;
+      console.log("thisinitData", this.initData);
+    },
+    handleCancel() {
+      this.dialogFormVisible = false;
+    },
+    async handleDeleteClick(item) {
+      let res = await this.$ajax.post("/api/companyNews/deleteNews", {
+        id: item.id,
+      });
+      console.log("res", res);
+      this.getCompanyNewsApi();
+    },
+
+    async handleAddApi(value) {
+      let res = await this.$ajax.post("/api/companyNews/addNews", {
+        ...value,
+      });
+      if (res.code === 200) {
+        console.log("res11111111111", res);
+        this.getCompanyNewsApi();
+      }
+      this.dialogFormVisible = false;
+    },
+
+    async handleEditApi(value) {
+      let res = await this.$ajax.post("/api/companyNews/updateNews", {
+        ...value,
+      });
+      if (res.code === 200) {
+        console.log("res22222222222", res);
+        this.getCompanyNewsApi();
+      }
+      this.dialogFormVisible = false;
     },
   },
   created() {
