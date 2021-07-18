@@ -34,6 +34,15 @@ export default {
       activeName: "BreedingPig",
     };
   },
+  watch:{
+    $route:{
+      handler(nv){
+        // console.log('nv',nv);
+        this.activeName=nv.name
+        
+      }
+    }
+  },
   methods: {
     hanldeGo(tab, event) {
       console.log(tab, event);
