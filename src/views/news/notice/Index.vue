@@ -48,7 +48,7 @@ import dealImage from "@/utils/dealImage.js";
 import editNews from "../editNews/Index.vue";
 export default {
   name: "ContactUs",
-  inject: ["isMobile"],
+  inject: ["isMobile", "frontUrl"],
   components: {
     editNews,
   },
@@ -81,7 +81,7 @@ export default {
       });
     },
     async getCompanyNewsApi() {
-      let res = await this.$ajax.get("/api/companyNews/list", {
+      let res = await this.$ajax.get(`${this.frontUrl}/api/companyNews/list`, {
         params: this.filters,
       });
       if (res.code === 200) {
@@ -111,7 +111,7 @@ export default {
     },
 
     async handleDeleteClick(item) {
-      let res = await this.$ajax.post("/api/companyNews/deleteNews", {
+      let res = await this.$ajax.post(`${this.frontUrl}/api/companyNews/deleteNews`, {
         id: item.id,
       });
       console.log("res", res);
@@ -119,7 +119,7 @@ export default {
     },
 
     async handleAddApi(value) {
-      let res = await this.$ajax.post("/api/companyNews/addNews", {
+      let res = await this.$ajax.post(`${this.frontUrl}/api/companyNews/addNews`, {
         ...value,
       });
       if (res.code === 200) {
@@ -130,7 +130,7 @@ export default {
     },
 
     async handleEditApi(value) {
-      let res = await this.$ajax.post("/api/companyNews/updateNews", {
+      let res = await this.$ajax.post(`${this.frontUrl}/api/companyNews/updateNews`, {
         ...value,
       });
       if (res.code === 200) {

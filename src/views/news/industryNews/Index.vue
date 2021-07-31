@@ -3,12 +3,8 @@
     <div class="title" v-if="!isMobile">行业动态</div>
     <el-button @click="handleAdd" v-if="!isMobile && isAdmin"> 新增 </el-button>
     <ul>
-      <li
-        v-for="(item, index) in copyNewsList"
-        :key="index"
-        @click="handleRouterDetail(item.type, item.id)"
-      >
-        <div class="left">
+      <li v-for="(item, index) in copyNewsList" :key="index">
+        <div class="left" @click="handleRouterDetail(item.type, item.id)">
           <el-image
             :src="item.headerImg && getImage(item.headerImg)"
             fit="cover"
@@ -16,8 +12,12 @@
           ></el-image>
         </div>
 
-        <div class="center">{{ item.title }}</div>
-        <div class="right">{{ item.date }}</div>
+        <div class="center" @click="handleRouterDetail(item.type, item.id)">
+          {{ item.title }}
+        </div>
+        <div class="right" @click="handleRouterDetail(item.type, item.id)">
+          {{ item.date }}
+        </div>
         <div class="operate-aere" v-if="!isMobile && isAdmin">
           <el-button @click="handleEditClick(item)" type="text" size="small"
             >编辑</el-button
@@ -48,7 +48,7 @@ import dealImage from "@/utils/dealImage.js";
 import editNews from "../editNews/Index.vue";
 export default {
   name: "IndustryNews",
-  inject: ["isMobile"],
+  inject: ["isMobile", "frontUrl"],
   components: {
     editNews,
   },
@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     async getCompanyNewsApi() {
-      let res = await this.$ajax.get("/api/companyNews/list", {
+      let res = await this.$ajax.get(`${this.frontUrl}/api/companyNews/list`, {
         params: this.filters,
       });
       if (res.code === 200) {
@@ -109,17 +109,23 @@ export default {
       this.dialogFormVisible = false;
     },
     async handleDeleteClick(item) {
-      let res = await this.$ajax.post("/api/companyNews/deleteNews", {
-        id: item.id,
-      });
+      let res = await this.$ajax.post(
+        `${this.frontUrl}/api/companyNews/deleteNews`,
+        {
+          id: item.id,
+        }
+      );
       console.log("res", res);
       this.getCompanyNewsApi();
     },
 
     async handleAddApi(value) {
-      let res = await this.$ajax.post("/api/companyNews/addNews", {
-        ...value,
-      });
+      let res = await this.$ajax.post(
+        `${this.frontUrl}/api/companyNews/addNews`,
+        {
+          ...value,
+        }
+      );
       if (res.code === 200) {
         console.log("res11111111111", res);
         this.getCompanyNewsApi();
@@ -128,9 +134,12 @@ export default {
     },
 
     async handleEditApi(value) {
-      let res = await this.$ajax.post("/api/companyNews/updateNews", {
-        ...value,
-      });
+      let res = await this.$ajax.post(
+        `${this.frontUrl}/api/companyNews/updateNews`,
+        {
+          ...value,
+        }
+      );
       if (res.code === 200) {
         console.log("res22222222222", res);
         this.getCompanyNewsApi();

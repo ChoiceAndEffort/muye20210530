@@ -1,17 +1,17 @@
 <template>
-  <div class="news" :class="{mobile:isMobile}">
+  <div class="news" :class="{ mobile: isMobile }">
     <h3>公司新闻</h3>
     <div class="content">
       <ul>
         <li
-          v-for="(item,index) in copyNewsList"
+          v-for="(item, index) in copyNewsList"
           :key="index"
-          @click="handleRouterDetail(item.type,item.id)"
+          @click="handleRouterDetail(item.type, item.id)"
         >
           <div class="top">
-            <div class="left">{{status[item.type]}}</div>
-            <div class="center">{{item.title}}</div>
-            <div class="right">{{item.date}}</div>
+            <div class="left">{{ status[item.type] }}</div>
+            <div class="center">{{ item.title }}</div>
+            <div class="right">{{ item.date }}</div>
           </div>
           <el-divider></el-divider>
         </li>
@@ -24,7 +24,7 @@
 <script>
 export default {
   name: "News",
-  inject: ["isMobile"],
+  inject: ["isMobile", "frontUrl"],
   data() {
     return {
       copyNewsList: undefined,
@@ -48,7 +48,7 @@ export default {
       });
     },
     async getCompanyNewsApi() {
-      let res = await this.$ajax.get("/api/companyNews/list", {
+      let res = await this.$ajax.get(`${this.frontUrl}/api/companyNews/list`, {
         params: {
           page: 1,
           pageSize: 5,

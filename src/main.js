@@ -70,8 +70,8 @@ import {
   // Aside,
   // Main,
   // Footer,
-  // Timeline,
-  // TimelineItem,
+  Timeline,
+  TimelineItem,
   // Link,
   Divider,
   Image,
@@ -157,8 +157,8 @@ Vue.use(CarouselItem);
 // Vue.use(Aside);
 // Vue.use(Main);
 // Vue.use(Footer);
-// Vue.use(Timeline);
-// Vue.use(TimelineItem);
+Vue.use(Timeline);
+Vue.use(TimelineItem);
 // Vue.use(Link);
 Vue.use(Divider);
 

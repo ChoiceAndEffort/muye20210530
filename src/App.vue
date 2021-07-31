@@ -23,11 +23,20 @@ export default {
   provide() {
     return {
       isMobile: this.isMobile,
+      frontUrl: this.frontUrl,
     };
   },
   computed: {
     isMobile() {
       return navigator.userAgent.match(reg);
+    },
+    frontUrl() {
+      let frontUrl =
+        process.env.NODE_ENV === "production"
+          ? "http://hubeiyuchen.asia:7001"
+          : "http://127.0.0.1:7001";
+      console.log("7777777", process.env.NODE_ENV);
+      return frontUrl;
     },
   },
 

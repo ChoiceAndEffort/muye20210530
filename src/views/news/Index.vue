@@ -1,19 +1,27 @@
 <template>
-  <div class="news" :class="{isMobile: isMobile}">
+  <div class="news" :class="{ isMobile: isMobile }">
     <div class="notice-img">
       <img :src="news" alt srcset />
     </div>
     <div class="content">
       <el-tabs v-model="title" @tab-click="handleClick" v-if="isMobile">
-        <el-tab-pane v-for="item in newsList" :label="item.name" :key="item.index" :name="item.url"></el-tab-pane>
+        <el-tab-pane
+          v-for="item in newsList"
+          :label="item.name"
+          :key="item.index"
+          :name="item.url"
+        ></el-tab-pane>
       </el-tabs>
       <ul class="introduce-list" v-else>
+        
         <li
           v-for="item in newsList"
           :key="item.index"
-          :class="{active:title===item.url}"
+          :class="{ active: title === item.url }"
           @click="handleTabSwitch(item)"
-        >{{item.name}}</li>
+        >
+          {{ item.name }}
+        </li>
       </ul>
       <div class="son-content">
         <router-view v-if="isUpdate" />

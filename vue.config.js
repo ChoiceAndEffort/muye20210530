@@ -1,7 +1,8 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
-let target = "http://127.0.0.1:7001"; // 代理的路径
+// let target = "http://127.0.0.1:7001"; // 代理的路径
+// let target = "http://1.14.141.164:7001"; // 代理的路径
 const ENV = process.env.NODE_ENV;
 
 let publicPath = "/"; //开发环境
@@ -9,7 +10,7 @@ let productionSourceMap = true; //开发环境开启devTool/source-map
 
 if (ENV === "production") {
   publicPath = "/yuchen/";
-  target = "";
+  // target = "http://hubeiyuchen.asia:7001";
   productionSourceMap = false; //生产环境不开启devTool/source-map
 }
 
@@ -18,16 +19,16 @@ module.exports = {
   productionSourceMap,
   devServer: {
     open: true, // 配置自动启动浏览器
-    proxy: {
-      "/api": {
-        target: target, // 代理的第一个路径,
+    // proxy: {
+    //   "/api": {
+    //     target: target, // 代理的第一个路径,
 
-        changeOrigin: true,
-        pathRewrite: {
-          "^/api": "/api", // 代理重写
-        },
-      },
-    },
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       "^/api": "/api", // 代理重写
+    //     },
+    //   },
+    // },
 
     // history模式下的url会请求到服务器端，但是服务器端并没有这一个资源文件，就会返回404，所以需要配置这一项
     historyApiFallback: {
