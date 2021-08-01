@@ -2,7 +2,7 @@
   <div class="industry-news" :class="{ mobile: isMobile }">
     <div class="title" v-if="!isMobile">行业动态</div>
     <el-button @click="handleAdd" v-if="!isMobile && isAdmin"> 新增 </el-button>
-    <ul>
+    <ul @scroll="handleBottomScroll($event)">
       <li v-for="(item, index) in copyNewsList" :key="index">
         <div class="left" @click="handleRouterDetail(item.type, item.id)">
           <el-image
@@ -54,7 +54,7 @@ export default {
   },
   data() {
     return {
-      copyNewsList: undefined,
+      copyNewsList: [],
       filters: {
         page: 1,
         pageSize: 5,
@@ -64,6 +64,8 @@ export default {
       dialogTitle: "新增新闻",
       fromPage: 1, //1-新增,2-编辑
       initData: undefined,
+      hasMore: true,
+      loading: false,
     };
   },
   computed: {
@@ -73,11 +75,24 @@ export default {
   },
   methods: {
     async getCompanyNewsApi() {
-      let res = await this.$ajax.get(`${this.frontUrl}/api/companyNews/list`, {
-        params: this.filters,
-      });
-      if (res.code === 200) {
-        this.copyNewsList = res.data.list || [];
+      if (this.loading || !this.hasMore) return;
+      this.loading = true;
+      try {
+        let res = await this.$ajax.get(
+          `${this.frontUrl}/api/companyNews/list`,
+          {
+            params: this.filters,
+          }
+        );
+        if (res.code === 200) {
+          this.loading = false;
+          const getList = res.data && res.data.list;
+          this.copyNewsList = this.copyNewsList.concat(getList);
+          this.filters.page += 1;
+          this.hasMore = getList.length === this.filters.pageSize;
+        }
+      } catch (error) {
+        this.loading = false;
       }
     },
     getImage(headerImg) {
@@ -146,6 +161,16 @@ export default {
       }
       this.dialogFormVisible = false;
     },
+    handleBottomScroll(e) {
+      let scrollTop = e.target.scrollTop;
+      let clientHeight = e.target.clientHeight;
+      let scrollHeight = e.target.scrollHeight;
+      if (scrollTop + clientHeight - scrollHeight >= 0) {
+        console.log("到底来了");
+
+        this.getCompanyNewsApi();
+      }
+    },
   },
   created() {
     this.getCompanyNewsApi();
@@ -158,6 +183,10 @@ export default {
 .industry-news {
   * {
     box-sizing: border-box;
+  }
+  ul {
+    height: 300px;
+    overflow-y: auto;
   }
   li {
     width: 100%;

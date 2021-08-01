@@ -2,7 +2,7 @@
   <div class="notice" :class="{ mobile: isMobile }">
     <div class="title" v-if="!isMobile">公司动态</div>
     <el-button @click="handleAdd" v-if="!isMobile && isAdmin"> 新增 </el-button>
-    <ul>
+    <ul @scroll="handleBottomScroll($event)">
       <li v-for="(item, index) in copyNewsList" :key="index">
         <div class="left" @click="handleRouterDetail(item.type, item.id)">
           <el-image
@@ -54,7 +54,7 @@ export default {
   },
   data() {
     return {
-      copyNewsList: undefined,
+      copyNewsList: [],
       filters: {
         page: 1,
         pageSize: 5,
@@ -64,6 +64,8 @@ export default {
       dialogTitle: "新增新闻",
       fromPage: 1, //1-新增,2-编辑
       initData: undefined,
+      hasMore: true,
+      loading: false,
     };
   },
   computed: {
@@ -81,11 +83,24 @@ export default {
       });
     },
     async getCompanyNewsApi() {
-      let res = await this.$ajax.get(`${this.frontUrl}/api/companyNews/list`, {
-        params: this.filters,
-      });
-      if (res.code === 200) {
-        this.copyNewsList = res.data.list || [];
+      if (this.loading || !this.hasMore) return;
+      this.loading = true;
+      try {
+        let res = await this.$ajax.get(
+          `${this.frontUrl}/api/companyNews/list`,
+          {
+            params: this.filters,
+          }
+        );
+        if (res.code === 200) {
+          this.loading = false;
+          const getList = res.data && res.data.list;
+          this.copyNewsList = this.copyNewsList.concat(getList);
+          this.filters.page += 1;
+          this.hasMore = getList.length === this.filters.pageSize;
+        }
+      } catch (error) {
+        this.loading = false;
       }
     },
     getImage(headerImg) {
@@ -111,17 +126,23 @@ export default {
     },
 
     async handleDeleteClick(item) {
-      let res = await this.$ajax.post(`${this.frontUrl}/api/companyNews/deleteNews`, {
-        id: item.id,
-      });
+      let res = await this.$ajax.post(
+        `${this.frontUrl}/api/companyNews/deleteNews`,
+        {
+          id: item.id,
+        }
+      );
       console.log("res", res);
       this.getCompanyNewsApi();
     },
 
     async handleAddApi(value) {
-      let res = await this.$ajax.post(`${this.frontUrl}/api/companyNews/addNews`, {
-        ...value,
-      });
+      let res = await this.$ajax.post(
+        `${this.frontUrl}/api/companyNews/addNews`,
+        {
+          ...value,
+        }
+      );
       if (res.code === 200) {
         console.log("res11111111111", res);
         this.getCompanyNewsApi();
@@ -130,14 +151,27 @@ export default {
     },
 
     async handleEditApi(value) {
-      let res = await this.$ajax.post(`${this.frontUrl}/api/companyNews/updateNews`, {
-        ...value,
-      });
+      let res = await this.$ajax.post(
+        `${this.frontUrl}/api/companyNews/updateNews`,
+        {
+          ...value,
+        }
+      );
       if (res.code === 200) {
         console.log("res22222222222", res);
         this.getCompanyNewsApi();
       }
       this.dialogFormVisible = false;
+    },
+    handleBottomScroll(e) {
+      let scrollTop = e.target.scrollTop;
+      let clientHeight = e.target.clientHeight;
+      let scrollHeight = e.target.scrollHeight;
+      if (scrollTop + clientHeight - scrollHeight >= 0) {
+        console.log("到底来了");
+
+        this.getCompanyNewsApi();
+      }
     },
   },
   created() {
@@ -151,6 +185,10 @@ export default {
 .notice {
   * {
     box-sizing: border-box;
+  }
+  ul {
+    height: 300px;
+    overflow-y: auto;
   }
   li {
     width: 100%;
