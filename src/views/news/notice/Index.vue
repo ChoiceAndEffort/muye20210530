@@ -90,7 +90,7 @@ export default {
     },
     getImage(headerImg) {
       return (
-        headerImg && headerImg.split(";").map((item) => dealImage(item))[0]
+        headerImg && headerImg.split("\n").map((item) => dealImage(item))[0]
       );
     },
     handleAdd() {

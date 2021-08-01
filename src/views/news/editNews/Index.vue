@@ -4,6 +4,7 @@
       :title="dialogTitle"
       :visible.sync="dialogFormVisible"
       :show-close="false"
+      :close-on-click-modal="false"
     >
       <!-- 增加新闻 -->
       <el-form
@@ -40,12 +41,13 @@
         </el-form-item>
         <el-form-item label="图片地址" prop="headerImg">
           <el-input
-            v-model.trim="formData.headerImg"
+            v-model="formData.headerImg"
             autocomplete="off"
+            type="textarea"
           ></el-input>
         </el-form-item>
         <el-form-item label="描述" prop="news">
-          <el-input v-model.trim="formData.news" type="textarea"></el-input>
+          <el-input v-model="formData.news" type="textarea"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
