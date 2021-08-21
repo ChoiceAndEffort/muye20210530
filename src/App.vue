@@ -1,16 +1,10 @@
 <template>
   <div id="app">
-    <!-- v-if="!isMobile" -->
     <mu-ban>
       <keep-alive>
         <router-view />
       </keep-alive>
     </mu-ban>
-    <!-- <mobeil-mu-ban v-else>
-      <keep-alive>
-        <router-view />
-      </keep-alive>
-    </mobeil-mu-ban>-->
   </div>
 </template>
 
@@ -31,11 +25,11 @@ export default {
       return navigator.userAgent.match(reg);
     },
     frontUrl() {
-      let frontUrl =
-        process.env.NODE_ENV === "production"
-          ? "http://hubeiyuchen.asia:7001"
-          : "http://127.0.0.1:7001";
-      console.log("7777777", process.env.NODE_ENV);
+      let frontUrl = "";
+      process.env.NODE_ENV === "production"
+        ? "http://hubeiyuchen.asia:7001"
+        : "http://127.0.0.1:7001";
+
       return frontUrl;
     },
   },

@@ -1,10 +1,10 @@
 <template>
   <div class="news-detail">
-    <p>{{ detail && detail.news }}</p>
+    <p v-html="detail && detail.news"></p>
 
     <ul>
       <li v-for="(item, index) in detail && detail.images" :key="index">
-        <el-image :src="item" fit="cover"></el-image>
+        <el-image :src="item" fit="cover" v-if="item"></el-image>
       </li>
     </ul>
   </div>

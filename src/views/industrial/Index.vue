@@ -71,8 +71,8 @@ export default {
     }
     .right {
       width: 90%;
-      text-align: center;
       text-align: left;
+      min-height: 300px;
     }
   }
 }

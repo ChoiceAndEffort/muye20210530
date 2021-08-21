@@ -6,6 +6,7 @@
       <li v-for="(item, index) in copyNewsList" :key="index">
         <div class="left" @click="handleRouterDetail(item.type, item.id)">
           <el-image
+            v-if="item.headerImg"
             :src="item.headerImg && getImage(item.headerImg)"
             fit="cover"
             class="image"

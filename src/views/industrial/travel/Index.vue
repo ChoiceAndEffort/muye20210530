@@ -1,9 +1,11 @@
 <template>
   <div class="travel">
     <div class="industrial-title" v-if="!isMobile">旅游产业</div>
-    <p>充分利用咸宁市良好的自然山水条件，，青山环抱、绿树掩映、小桥流水、涂鸦动漫，仿佛一夜之间，古老贫穷地，突脱成新娘，一派端庄秀气、江南风韵模样。以人为本、以文化为底蕴、以绿化为载体，以繁荣经济促进社会发展为目的，来打造此次农业生态景观设计。</p>
+    <p>
+      充分利用咸宁市良好的自然山水条件，，青山环抱、绿树掩映、小桥流水、涂鸦动漫，仿佛一夜之间，古老贫穷地，突脱成新娘，一派端庄秀气、江南风韵模样。以人为本、以文化为底蕴、以绿化为载体，以繁荣经济促进社会发展为目的，来打造此次农业生态景观设计。
+    </p>
     <ul>
-      <li v-for="(image,index) in xianningList" :key="index">
+      <li v-for="(image, index) in xianningList" :key="index">
         <el-image :src="image" fit="cover"></el-image>
       </li>
     </ul>
@@ -12,7 +14,7 @@
       园区悠远宁静，朴树、红枫姿态飘扬。晴时如湖上碧玉，水光潋滟；雨时树影空蒙，若隐若现；春有草花接水，夏有荷韵飘香，秋有红叶似火，冬有湖鸟一色。
     </p>
     <ul>
-      <li v-for="(image,index) in anshanList" :key="index">
+      <li v-for="(image, index) in anshanList" :key="index">
         <el-image :src="image" fit="cover"></el-image>
       </li>
     </ul>
@@ -43,7 +45,7 @@ export default {
 .travel {
   padding: 10px 0;
   p {
-    font-size: 20px;
+    line-height: 20px;
     padding: 10px 0;
   }
   ul {
@@ -52,11 +54,12 @@ export default {
   }
   li {
     width: 100%;
-
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 
     /deep/.el-image {
-      width: 100%;
+      width: 80%;
       height: 100%;
     }
   }

@@ -11,7 +11,7 @@ export const rules = {
   ],
   headerImg: [
     {
-      required: true,
+      required: false,
       message: "请输入图片地址",
       trigger: ["blur", "change"],
     },
