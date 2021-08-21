@@ -10,10 +10,11 @@
           <div class="line"></div>
         </li>
       </ul>
+
       <el-carousel
-        :type="isMobile ? '' : 'card'"
         :interval="4000"
-        height="350px"
+        :type="isMobile ? '' : 'card'"
+        height="300px"
         indicator-position="none"
         @change="handleCardChange"
       >
@@ -125,9 +126,8 @@ export default {
           img: "",
           time: 2016,
           content:
-            "在黄冈市罗田县大崎镇开展“公司+家庭农场”养猪产业精准扶贫工作、建设美丽乡村",
-          content1:
-            "在黄冈市团风县贾庙乡开展“公司+家庭农场”养猪产业精准扶贫工作、建设美丽乡村",
+            "在黄冈市罗田县大崎镇和团风县贾庙乡开展“公司+家庭农场”养猪产业精准扶贫工作、建设美丽乡村",
+          content1: "",
         },
         {
           tag: "扩张",
@@ -135,8 +135,7 @@ export default {
           time: 2017,
           content:
             "参股成立湖北天帮山生态农牧业发展有限公司，开展养猪产业精准扶贫工作、建设美丽乡村",
-          content1:
-            "在黄冈市团风县贾庙乡开展“公司+家庭农场”养猪产业精准扶贫工作、建设美丽乡村",
+          content1: "",
         },
         {
           tag: "扩张",
@@ -150,8 +149,8 @@ export default {
           tag: "扩张",
           img: "",
           time: 2021,
-          content: "成立湖北宇晨农牧有限公司，发展生态农业",
-          content1: "成立咸宁宇晨农牧有限公司，发展生态农业",
+          content: "成立湖北宇晨和咸宁宇晨农牧有限公司，发展生态农业",
+          content1: "",
         },
       ],
     };
@@ -172,6 +171,9 @@ export default {
     background: #3c72db;
     height: 600px;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   /deep/.el-timeline {
@@ -182,6 +184,7 @@ export default {
     width: 100%;
     height: 100px;
     justify-content: center;
+    margin-bottom: 30px;
     li {
       flex: 1;
       display: flex;
@@ -204,18 +207,26 @@ export default {
   }
   .card-item {
     padding: 10px;
+
+    height: 100%;
+
     p {
       color: #f08300;
       font-size: 36px;
       font-weight: 600;
+      height: 50px;
+      line-height: 50px;
     }
     h3 {
       color: red;
       font-size: 28px;
       opacity: 0.75;
       padding: 3px 0;
+      height: 50px;
+      line-height: 50px;
     }
-    .content {
+    .content,
+    .content1 {
       line-height: 20px;
       margin: 5px 0;
     }

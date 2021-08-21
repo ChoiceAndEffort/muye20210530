@@ -25,10 +25,10 @@ export default {
       return navigator.userAgent.match(reg);
     },
     frontUrl() {
-      let frontUrl = "";
-      process.env.NODE_ENV === "production"
-        ? "http://hubeiyuchen.asia:7001"
-        : "http://127.0.0.1:7001";
+      let frontUrl =
+        process.env.NODE_ENV === "production"
+          ? "http://hubeiyuchen.asia:7001"
+          : "http://127.0.0.1:7001";
 
       return frontUrl;
     },
