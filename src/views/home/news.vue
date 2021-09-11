@@ -4,7 +4,7 @@
     <div class="content">
       <ul>
         <li
-          v-for="(item, index) in copyNewsList"
+          v-for="(item, index) in copyNewsList.slice(0, 5)"
           :key="index"
           @click="handleRouterDetail(item.type, item.id)"
         >

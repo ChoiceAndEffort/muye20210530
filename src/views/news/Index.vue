@@ -88,6 +88,7 @@ export default {
     margin: 0 auto;
   }
   .introduce-list {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 

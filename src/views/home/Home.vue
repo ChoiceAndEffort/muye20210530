@@ -28,7 +28,7 @@ import ScopeOfBusiness from "./scopeOfBusiness.vue";
 import News from "./news.vue";
 import home from "@/assets/images/home.jpg";
 import damen from "@/assets/images/damen.jpg";
-import qincai from "@/assets/images/qincai.jpg";
+// import qincai from "@/assets/images/qincai.jpg";
 import rukou from "@/assets/images/rukou.jpg";
 
 export default {
@@ -41,7 +41,7 @@ export default {
   inject: ["isMobile"],
   data() {
     return {
-      navList: [home, damen, rukou, qincai],
+      navList: [home, damen, rukou],
     };
   },
   methods: {},

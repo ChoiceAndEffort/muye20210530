@@ -1,6 +1,7 @@
 <template>
   <div class="news-detail">
-    <p v-html="detail && detail.news"></p>
+    <h3>{{ detail && detail.title }}</h3>
+    <div v-html="detail && detail.news" class="news"></div>
 
     <ul>
       <li v-for="(item, index) in detail && detail.images" :key="index">
@@ -47,7 +48,14 @@ export default {
 
 <style lang="less" scoped>
 .news-detail {
-  p {
+  h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    padding: 10px 0;
+  }
+  .news {
     text-align: left;
     line-height: 30px;
     font-size: 20px;
@@ -56,12 +64,15 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 0.5rem;
     li {
       width: 100%;
       margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
 
       /deep/.el-image {
-        width: 100%;
+        width: 60%;
         height: 100%;
       }
     }

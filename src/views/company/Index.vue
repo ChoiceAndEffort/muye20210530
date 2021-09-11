@@ -3,7 +3,7 @@
     <div class="company-img">
       <img :src="damen" alt srcset />
     </div>
-    <div class="content" :class="{isMobile:isMobile}">
+    <div class="content" :class="{ isMobile: isMobile }">
       <el-tabs v-model="title" @tab-click="handleClick" v-if="isMobile">
         <el-tab-pane
           v-for="item in instroduceList"
@@ -16,9 +16,11 @@
         <li
           v-for="item in instroduceList"
           :key="item.index"
-          :class="{active:title===item.url}"
+          :class="{ active: title === item.url }"
           @click="handleTabSwitch(item)"
-        >{{item.name}}</li>
+        >
+          {{ item.name }}
+        </li>
       </ul>
 
       <div class="son-content">
@@ -95,6 +97,7 @@ export default {
     padding: 10px;
   }
   .introduce-list {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 

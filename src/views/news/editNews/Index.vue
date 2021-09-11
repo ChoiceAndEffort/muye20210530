@@ -47,7 +47,11 @@
           ></el-input>
         </el-form-item>
         <el-form-item label="描述" prop="news">
-          <el-input v-model="formData.news" type="textarea"></el-input>
+          <el-input
+            v-model="formData.news"
+            type="textarea"
+            :autosize="{ minRows: 10, maxRows: 15 }"
+          ></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
