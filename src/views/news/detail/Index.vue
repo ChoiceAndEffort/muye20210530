@@ -36,7 +36,7 @@ export default {
 
         this.detail = res.data;
         this.detail.images =
-          headerImg && headerImg.split("\n").map((item) => dealImage(item));
+          headerImg && headerImg.split("\n").map((item) => dealImage(item)).slice(1);
       }
     },
   },
