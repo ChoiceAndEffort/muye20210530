@@ -1,12 +1,12 @@
 <template>
-  <div class="header" :class="{pc:!isMobile}">
+  <div class="header" :class="{ pc: !isMobile }">
     <div class="content">
       <div class="left">
         <h1 v-show="false">湖北宇晨农牧有限公司</h1>
         <img src="../assets/images/logo.png" alt srcset />
       </div>
       <div class="right">
-        <div class="icon" @click="show=!show" v-if="isMobile">
+        <div class="icon" @click="show = !show" v-if="isMobile">
           <van-icon name="wap-nav" />
         </div>
         <el-menu
@@ -19,12 +19,13 @@
           active-text-color="#409eff"
         >
           <template v-for="item in menuList">
-            <template v-if="!(item.children && item.children.length)>0 ">
+            <template v-if="!(item.children && item.children.length) > 0">
               <el-menu-item
                 :index="item.index"
                 :key="item.index"
                 @click="handleGoPage(item.url)"
-              >{{ item.name }}</el-menu-item>
+                >{{ item.name }}</el-menu-item
+              >
             </template>
             <template v-else>
               <el-submenu :index="item.index" :key="item.index">
@@ -34,32 +35,45 @@
                   :index="son.index"
                   :key="son.index"
                   @click="handleGoPage(son.url)"
-                >{{ son.name }}</el-menu-item>
+                  >{{ son.name }}</el-menu-item
+                >
               </el-submenu>
             </template>
           </template>
         </el-menu>
       </div>
     </div>
-    <van-popup v-model="show" position="top" v-if="isMobile" :style="{ height: '70%' }">
+    <van-popup
+      v-model="show"
+      position="top"
+      v-if="isMobile"
+      :style="{ height: '70%' }"
+    >
       <van-collapse v-model="activeNames" accordion>
         <template v-for="item in menuList">
           <div
             class="van-collapse-item-father"
-            v-if="!(item.children&&item.children.length>0)"
+            v-if="!(item.children && item.children.length > 0)"
             :key="item.index"
             @click="handleGoPage(item.url)"
           >
-            <div class="son">{{item.name}}</div>
+            <div class="son">{{ item.name }}</div>
           </div>
-          <van-collapse-item :title="item.name" :name="item.index" v-else :key="item.index">
+          <van-collapse-item
+            :title="item.name"
+            :name="item.index"
+            v-else
+            :key="item.index"
+          >
             <div
               class="van-collapse-item-son"
               v-for="son in item.children"
               :index="son.index"
               :key="son.index"
               @click="handleGoPage(son.url)"
-            >{{ son.name }}</div>
+            >
+              {{ son.name }}
+            </div>
           </van-collapse-item>
         </template>
       </van-collapse>
@@ -123,7 +137,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@height: 60px;
+@height: 90px;
 .header {
   z-index: 1000;
   height: @height;
@@ -138,15 +152,18 @@ export default {
   .left {
     display: inline-block;
     img {
-      height: 60px;
-      width: 100px;
+      height: 90px;
+      width: 290px;
     }
   }
   .right {
     margin-right: 10px;
     font-size: 36px;
     color: #c1c1c1;
+    display: flex;
+    align-items: center;
   }
+
   .van-collapse-item-father {
     padding: 0px 16px;
     .son {
