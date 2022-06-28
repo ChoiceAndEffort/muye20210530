@@ -5,7 +5,7 @@
         <ul>
           <div class="company-name">宇晨农牧</div>
           <li>
-            <span class="title">公司地址：武汉市江夏区纸坊街文化大道113号聚诚怡江大厦A单元22层8室</span>
+            <span class="title">公司地址：湖北省武汉市江夏区安山街道青春村牛家湾</span>
             <span class="title-content"></span>
           </li>
           <li>
@@ -13,7 +13,7 @@
             <span class="title-content">18171438963</span>
           </li>
           <li>
-            <span class="title">公司邮箱：</span>
+            <span class="title">公司邮箱：326942157@qq.com</span>
             <span class="title-content"></span>
           </li>
            <li>
