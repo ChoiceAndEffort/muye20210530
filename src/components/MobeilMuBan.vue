@@ -27,7 +27,7 @@
           <span class="content">18171438963</span>
         </li>
         <li>
-          <span class="title">公司邮箱：326942157@qq.com</span>
+          <span class="title">公司邮箱：615543024@qq.com</span>
           <span class="content"></span>
         </li>
       </ul>

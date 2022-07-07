@@ -13,12 +13,12 @@
             <span class="title-content">18171438963</span>
           </li>
           <li>
-            <span class="title">公司邮箱：326942157@qq.com</span>
+            <span class="title">公司邮箱：615543024@qq.com</span>
             <span class="title-content"></span>
           </li>
            <li>
             <span class="title">备案号：</span>
-            <span class="title-content">粤ICP备2021086832号-1</span>
+            <span class="title-content">鄂ICP备2022011274号</span>
           </li>
         </ul>
       </div>
