@@ -4,7 +4,7 @@
     <div class="content">
       <ul>
         <li
-          v-for="(item, index) in copyNewsList.slice(0, 5)"
+          v-for="(item, index) in copyNewsList&&copyNewsList.slice(0, 5)"
           :key="index"
           @click="handleRouterDetail(item.type, item.id)"
         >
@@ -69,6 +69,7 @@ export default {
 .news {
   padding: 20px 0;
   width: 100%;
+  margin-top: 20px;
   * {
     box-sizing: border-box;
   }
