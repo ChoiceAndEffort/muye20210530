@@ -87,7 +87,7 @@ import {
 
 import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
-import MuBan from "@/components/MuBan.vue";
+import MuBan from "@/components/muban.vue";
 import MobeilMuBan from "@/components/MobeilMuBan.vue";
 Vue.component("Header", Header);
 Vue.component("Footer", Footer);

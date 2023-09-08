@@ -39,12 +39,12 @@ module.exports = {
   chainWebpack: (config) => {
     if (ENV === "production") {
       // 压缩图片
-      config.module
-        .rule("images")
-        .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
-        .use("image-webpack-loader")
-        .loader("image-webpack-loader")
-        .options({ bypassOnDebug: true });
+      // config.module
+      //   .rule("images")
+      //   .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+      //   .use("image-webpack-loader")
+      //   .loader("image-webpack-loader")
+      //   .options({ bypassOnDebug: true });
     }
   },
   //   如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。
