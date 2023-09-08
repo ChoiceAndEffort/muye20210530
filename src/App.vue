@@ -1,3 +1,11 @@
+<!--
+ * @Author: lg
+ * @Date: 2023-09-08 12:37:51
+ * @LastEditors: lg
+ * @LastEditTime: 2023-09-08 12:53:41
+ * @Description: 
+ * @FilePath: \muye20210530\src\App.vue
+-->
 <template>
   <div id="app">
     <mu-ban>
@@ -25,7 +33,7 @@ export default {
       return navigator.userAgent.match(reg);
     },
     frontUrl() {
-      let frontUrl = "http://hubeiyuchen.asia:7001";
+      let frontUrl = "http://hubeiyuchen.cn:7001";
       // process.env.NODE_ENV === "production"
       //   ? "http://hubeiyuchen.asia:7001"
       //   : "http://127.0.0.1:7001";
